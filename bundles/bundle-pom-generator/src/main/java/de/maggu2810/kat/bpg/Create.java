@@ -1,5 +1,7 @@
 package de.maggu2810.kat.bpg;
 
+import java.io.FileOutputStream;
+import java.io.OutputStream;
 import java.util.List;
 
 import org.apache.karaf.bundle.core.BundleInfo;
@@ -19,7 +21,7 @@ import org.osgi.framework.Version;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-@Command(scope = "bpg", name = "create", description = "bundle pom generator test")
+@Command(scope = "kat", name = "bpg", description = "bundle pom generator")
 @Service
 public class Create implements Action {
 
@@ -27,6 +29,9 @@ public class Create implements Action {
 
     @Option(name = "--context", aliases = { "-c" }, description = "Use the given bundle context")
     String context = "0";
+
+    @Option(name = "-f", valueToShowInHelp = "", description = "Specified the file the POM should be written to (otherwise stdout).", required = false, multiValued = false)
+    String filePath = null;
 
     @Option(name = "-t", valueToShowInHelp = "", description = "Specifies the bundle threshold; bundles with a start-level less than this value will not get printed out.", required = false, multiValued = false)
     int bundleLevelThreshold = -1;
@@ -51,6 +56,7 @@ public class Create implements Action {
     @Override
     public Object execute() throws Exception {
         final Model model = new Model();
+        model.setModelVersion("4.0.0");
         model.setGroupId("tmp");
         model.setArtifactId("tmp");
         model.setVersion("1.0.0-SNAPSHOT");
@@ -65,7 +71,14 @@ public class Create implements Action {
         }
 
         final MavenXpp3Writer writer = new MavenXpp3Writer();
-        writer.write(System.out, model);
+        if (filePath != null) {
+            try (final OutputStream out = new FileOutputStream(filePath)) {
+                writer.write(out, model);
+            }
+        } else {
+            writer.write(System.out, model);
+        }
+
         return null;
     }
 
