@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
+
+  <feature name="kat.tp-apache-commons-lang3" version="${commons-lang3.version}">
+    <bundle>mvn:org.apache.commons/commons-lang3/${commons-lang3.version}</bundle>
+  </feature>
+
+  <feature name="kat.tp-maven-model" version="${project.version}">
+    <feature prerequisite="true" dependency="false">wrap</feature>
+    <feature>kat.tp-apache-commons-lang3</feature>
+    <bundle>wrap:mvn:org.codehaus.plexus/plexus-utils/${plexus-utils.version}</bundle>
+    <bundle>wrap:mvn:org.apache.maven/maven-model/${maven-model.version}</bundle>
+  </feature>
+
+  <feature name="kat-bpg" description="KAT :: Bundle POM Generator" version='${project.version}'>
+    <details>This will add command(s) to generate a POM that depends on the current installed bundles. This could be used to fill the debug IDE with all necessary artifacts.</details>
+    <feature>kat.tp-maven-model</feature>
+    <feature>bundle</feature>
+    <feature>shell</feature>
+    <bundle>mvn:de.maggu2810.kat.bundles/bundle-pom-generator/${project.version}</bundle>
+  </feature>
+
+</features>
