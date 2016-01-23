@@ -15,6 +15,7 @@
   <name>KAT :: Features</name>
 
   <modules>
+    <module>equinox</module>
     <module>kat</module>
     <module>verify</module>
   </modules>
