@@ -1,7 +1,9 @@
 package de.maggu2810.kat.bpg;
 
+import java.io.File;
 import java.io.FileOutputStream;
 import java.io.OutputStream;
+import java.nio.file.Paths;
 import java.util.List;
 
 import org.apache.karaf.bundle.core.BundleInfo;
@@ -27,16 +29,18 @@ public class Create implements Action {
 
     public Logger logger = LoggerFactory.getLogger(Create.class);
 
-    @Option(name = "--context", aliases = { "-c" }, description = "Use the given bundle context")
+    @Option(name = "--context", aliases = {"-c"},
+            description = "Use the given bundle context")
     String context = "0";
 
-    @Option(name = "-f", valueToShowInHelp = "", description = "Specified the file the POM should be written to (otherwise stdout).", required = false, multiValued = false)
-    String filePath = null;
+    @Option(name = "-o", valueToShowInHelp = "",
+            description = "Specified the location for the output project (directory will be created if necessary and a pom.xml is placed in), otherwise stdout is used.",
+            required = false, multiValued = false)
+    String outPath = null;
 
-    @Option(name = "-t", valueToShowInHelp = "", description = "Specifies the bundle threshold; bundles with a start-level less than this value will not get printed out.", required = false, multiValued = false)
-    int bundleLevelThreshold = -1;
-
-    @Argument(index = 0, name = "ids", description = "The list of bundle (identified by IDs or name or name/version) separated by whitespaces", required = false, multiValued = true)
+    @Argument(index = 0, name = "ids",
+            description = "The list of bundle (identified by IDs or name or name/version) separated by whitespaces",
+            required = false, multiValued = true)
     List<String> ids;
 
     @Reference
@@ -71,8 +75,19 @@ public class Create implements Action {
         }
 
         final MavenXpp3Writer writer = new MavenXpp3Writer();
-        if (filePath != null) {
-            try (final OutputStream out = new FileOutputStream(filePath)) {
+        if (outPath != null) {
+            final File outDir = new File(outPath);
+            if (outDir.exists()) {
+                if (!outDir.isDirectory()) {
+                    logger.error("The output path ({}) exists but is not a directory.", outPath);
+                    return null;
+                }
+            } else {
+                if (!outDir.mkdirs()) {
+                    logger.error("Cannot create directory ({})", outPath);
+                }
+            }
+            try (final OutputStream out = new FileOutputStream(Paths.get(outPath, "pom.xml").toFile())) {
                 writer.write(out, model);
             }
         } else {
