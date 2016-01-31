@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
+
+  <feature name="kat-paho-client-mqttv3" description="MQTT v3 Client" version="1.0.2">
+    <bundle>mvn:org.eclipse.paho/org.eclipse.paho.client.mqttv3/1.0.2</bundle>
+  </feature>
+
+</features>

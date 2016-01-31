@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
+
+  <feature name="kat-jmdns" description="An implemenation of multi-cast DNS in Java." version="3.4.2">
+    <bundle>mvn:org.openhab.jmdns/jmdns/3.4.2</bundle>
+  </feature>
+
+</features>

@@ -18,7 +18,10 @@
     <module>apache-commons</module>
     <module>apache-httpcomponents</module>
     <module>equinox</module>
+    <module>jmdns</module>
+    <module>jupnp</module>
     <module>kat</module>
+    <module>paho</module>
     <module>xtext</module>
 
     <module>aggregate</module>
