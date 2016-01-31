@@ -15,8 +15,13 @@
   <name>KAT :: Features</name>
 
   <modules>
+    <module>apache-commons</module>
+    <module>apache-httpcomponents</module>
     <module>equinox</module>
     <module>kat</module>
+    <module>xtext</module>
+
+    <module>aggregate</module>
     <module>verify</module>
   </modules>
 

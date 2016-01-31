@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
+
+  <feature name="kat.impl-xtext-dependencies" version="${project.version}" description="Used to resolve Xtext dependencies only (see details).">
+    <details>
+      This is only used to provide optional dependencies to resolve features that needs Xtext or related stuff.
+      There is no intention that this feature is installed manually or to provide some function on its own.
+      Use this in other features with the dependency attribute set to true only.
+      All bundles and features that are part of this one have to set the depencency attribute to true.
+    </details>
+
+    <!-- All bundles defined here are used by ALL our Xtext bundles -->
+    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.equinox.common/3.7.0.v20150402-1709</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.equinox.registry/3.6.0.v20150318-1503</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.equinox.supplement/1.6.0.v20141009-1504</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.p2redist/com.google.guava/10.0.1.v201203051515</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.p2redist/com.google.inject/3.0.0.v201312141243</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.antlr.runtime/3.2.0.v201101311130</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.objectweb.asm/5.0.1.v201404251740</bundle>
+  </feature>
+
+  <feature name="kat-xtext" version="2.6.2" description="Xtext - Language Engineering Made Easy">
+    <capability>kat;feature=xtext;version=2.6.2</capability>
+    <feature dependency="true" version="${project.version}">kat.impl-xtext-dependencies</feature>
+    <bundle>mvn:de.maggu2810.p2redist/org.eclipse.xtext/2.6.2.v201407030533</bundle>
+
+    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.emf.common/2.10.1.v20150123-0348</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.emf.ecore/2.10.2.v20150123-0348</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.emf.ecore.xmi/2.10.2.v20150123-0348</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.xtend.lib/2.6.2.v201407030533</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.xtext.common.types/2.6.2.v201407030533</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.xtext.util/2.6.2.v201407030533</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.xtext.xbase/2.6.2.v201407030533</bundle>
+    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.xtext.xbase.lib/2.6.2.v201407030533</bundle>
+  </feature>
+
+</features>

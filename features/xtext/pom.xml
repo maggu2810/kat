@@ -8,10 +8,10 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>kat</artifactId>
+  <artifactId>xtext</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: KAT Feature</name>
+  <name>KAT :: Xtext Feature</name>
 
   <build>
     <plugins>

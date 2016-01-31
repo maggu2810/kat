@@ -8,10 +8,10 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>kat</artifactId>
+  <artifactId>apache-httpcomponents</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: KAT Feature</name>
+  <name>KAT :: Apache HttpComponents Feature</name>
 
   <build>
     <plugins>

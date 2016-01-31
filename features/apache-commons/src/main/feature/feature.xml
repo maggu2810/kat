@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
+
+  <feature name="kat-apache-commons-codec" version="1.6">
+    <bundle>mvn:commons-codec/commons-codec/1.6</bundle>
+  </feature>
+
+  <feature name="kat-apache-commons-collections" version="3.2.1">
+    <bundle>mvn:commons-collections/commons-collections/3.2.1</bundle>
+  </feature>
+
+  <feature name="kat-apache-commons-exec" version="1.1">
+    <bundle>mvn:org.apache.commons/commons-exec/1.1</bundle>
+  </feature>
+
+  <feature name="kat-apache-commons-httpclient" version="3.1_7">
+    <feature dependency="true">kat-apache-commons-codec</feature>
+    <bundle>mvn:org.apache.servicemix.bundles/org.apache.servicemix.bundles.commons-httpclient/3.1_7</bundle>
+  </feature>
+
+  <feature name="kat-apache-commons-io" version="2.2">
+    <bundle>mvn:commons-io/commons-io/2.2</bundle>
+  </feature>
+
+  <feature name="kat-apache-commons-lang" version="2.6">
+    <bundle>mvn:commons-lang/commons-lang/2.6</bundle>
+  </feature>
+
+  <feature name="kat-apache-commons-lang3" version="3.4">
+    <bundle>mvn:org.apache.commons/commons-lang3/3.4</bundle>
+  </feature>
+
+  <feature name="kat-apache-commons-net" version="3.2">
+    <bundle>mvn:commons-net/commons-net/3.2</bundle>
+  </feature>
+
+</features>

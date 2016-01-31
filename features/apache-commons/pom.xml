@@ -8,17 +8,10 @@
     <version>1.0-SNAPSHOT</version>
   </parent>
 
-  <artifactId>maven-model</artifactId>
+  <artifactId>apache-commons</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Model Model Feature</name>
-
-  <dependencies>
-    <dependency>
-      <groupId>org.apache.maven</groupId>
-      <artifactId>maven-model</artifactId>
-    </dependency>
-  </dependencies>
+  <name>KAT :: Apache Commons Feature</name>
 
   <build>
     <plugins>

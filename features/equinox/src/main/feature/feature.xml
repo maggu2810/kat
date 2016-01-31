@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
 
-  <feature name="equinox-event" description="OSGi Event Admin service specification for event-based communication" version="1.3.100.v20140115-1647">
+  <!-- For feature verification -->
+  <feature name="kat.impl-equinox" version="3.10.2.v20150203-1939">
+    <bundle start-level="0" dependency="true">mvn:org.eclipse.birt.runtime/org.eclipse.osgi/3.10.2.v20150203-1939</bundle>
+  </feature>
+
+  <feature name="kat-equinox-event" description="OSGi Event Admin service specification for event-based communication" version="1.3.100.v20140115-1647">
+    <!-- For feature verification -->
+    <feature dependency="true">kat.impl-equinox</feature>
+
     <bundle start-level="5" dependency="true">mvn:de.maggu2810.osgi.compendium/org.osgi.compendium.split.service.event/5.0.0.sp1</bundle>
     <bundle start-level="5">mvn:de.maggu2810.p2redist/org.eclipse.equinox.util/1.0.500.v20130404-1337</bundle>
     <bundle start-level="5">mvn:de.maggu2810.p2redist/org.eclipse.equinox.event/1.3.100.v20140115-1647</bundle>
   </feature>
 
-  <feature name="equinox-ds" description="Declarative Service support" version="1.4.200.v20131126-2331">
+  <feature name="kat-equinox-ds" description="Declarative Service support" version="1.4.200.v20131126-2331">
+    <!-- For feature verification -->
+    <feature dependency="true">kat.impl-equinox</feature>
+
     <bundle start-level="30" dependency="true">mvn:de.maggu2810.osgi.compendium/org.osgi.compendium.split.service.component/5.0.0.sp1</bundle>
     <bundle start-level="30">mvn:de.maggu2810.p2redist/org.eclipse.equinox.util/1.0.500.v20130404-1337</bundle>
     <bundle start-level="30">mvn:de.maggu2810.p2redist/org.eclipse.equinox.ds/1.4.200.v20131126-2331</bundle>
@@ -15,5 +26,16 @@
       osgi.extender;osgi.extender="osgi.component";uses:="org.osgi.service.component";version:Version="1.2.1"
     </capability>
   </feature>
+
+  <feature name="kat-kce" description="KAT :: Karaf Console Equinox Gateway" version='${project.version}'>
+    <details>This will add Equinox command extension to the Karaf console.</details>
+
+    <!-- For feature verification -->
+    <feature dependency="true">kat.impl-equinox</feature>
+
+    <feature>shell</feature>
+    <bundle>mvn:de.maggu2810.kat.bundles/karaf-console-equinox/${project.version}</bundle>
+  </feature>
+
 
 </features>
