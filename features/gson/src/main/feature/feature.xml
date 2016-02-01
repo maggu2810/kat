@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
+
+  <feature name="kat-gson" description="Conversion Java Objects into their JSON representation and reverse." version="2.3.1">
+    <bundle>mvn:com.google.code.gson/gson/2.3.1</bundle>
+  </feature>
+
+</features>
