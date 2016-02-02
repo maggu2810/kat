@@ -16,7 +16,11 @@
     <bundle dependency="true">mvn:de.maggu2810.p2redist/com.google.guava/10.0.1.v201203051515</bundle>
     <bundle dependency="true">mvn:de.maggu2810.p2redist/com.google.inject/3.0.0.v201312141243</bundle>
     <bundle dependency="true">mvn:de.maggu2810.p2redist/org.antlr.runtime/3.2.0.v201101311130</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.objectweb.asm/5.0.1.v201404251740</bundle>
+
+    <!-- Add ASM package -->
+    <!-- org.eclipse.xtext.common.types (2.6.2.v201407030533 and 2.9.1) is using Require-Bundle -->
+    <bundle dependency="true">mvn:de.maggu2810.requirebundle.fix/org.objectweb.asm/5.0.2</bundle>
+    <bundle dependency="true" start-level="20">mvn:org.ow2.asm/asm-all/5.0.2</bundle>
   </feature>
 
   <feature name="kat-xtext" version="2.6.2" description="Xtext - Language Engineering Made Easy">
