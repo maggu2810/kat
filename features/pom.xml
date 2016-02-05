@@ -22,7 +22,9 @@
     <module>jmdns</module>
     <module>jupnp</module>
     <module>kat</module>
+    <module>maven</module>
     <module>paho</module>
+    <module>plexus</module>
     <module>xtext</module>
 
     <module>aggregate</module>
