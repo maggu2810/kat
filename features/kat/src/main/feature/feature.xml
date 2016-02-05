@@ -1,11 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
 
-  <feature name="kat-maven-model" version="${project.version}">
+  <feature name="kat-plexus-utils" version="3.0.22">
+    <feature prerequisite="true" dependency="false">wrap</feature>
+    <bundle>wrap:mvn:org.codehaus.plexus/plexus-utils/3.0.22</bundle>
+  </feature>
+
+  <feature name="kat-maven-model" version="3.3.9">
     <feature prerequisite="true" dependency="false">wrap</feature>
     <feature>kat-apache-commons-lang3</feature>
-    <bundle>wrap:mvn:org.codehaus.plexus/plexus-utils/${plexus-utils.version}</bundle>
-    <bundle>wrap:mvn:org.apache.maven/maven-model/${maven-model.version}</bundle>
+    <feature>kat-plexus-utils</feature>
+    <bundle>wrap:mvn:org.apache.maven/maven-model/3.3.9</bundle>
   </feature>
 
   <feature name="kat-bpg" description="KAT :: Bundle POM Generator" version='${project.version}'>
