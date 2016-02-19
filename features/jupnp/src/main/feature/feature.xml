@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
 
-  <feature name="kat-jupnp" description=" UPnP/DLNA library for Java" version="2.1.0.RC1">
+  <feature name="kat-jupnp" description=" UPnP/DLNA library for Java" version="2.1.0">
     <feature dependency="true">http</feature>
     <feature>kat-apache-httpcomponents-httpclient</feature>
-    <bundle>mvn:org.jupnp/org.jupnp/2.1.0.RC1</bundle>
+    <bundle>mvn:org.jupnp/org.jupnp/2.1.0</bundle>
   </feature>
 
 </features>
