@@ -177,7 +177,17 @@
   <repositories>
     <repository>
       <id>bintray-maggu2810-maven</id>
-      <url>http://dl.bintray.com/maggu2810/maven</url>
+      <url>http://dl.bintray.com/maggu2810/maven/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>jCenter</id>
+      <url>https://jcenter.bintray.com/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
