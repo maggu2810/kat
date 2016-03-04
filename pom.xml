@@ -22,6 +22,7 @@
     <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
     <license.skipUpdateLicense>false</license.skipUpdateLicense>
     <karaf.version>4.0.4</karaf.version>
+    <maven.build.resources.version>1.0</maven.build.resources.version>
   </properties>
 
   <licenses>
@@ -142,9 +143,9 @@
           </configuration>
           <dependencies>
             <dependency>
-              <groupId>de.maggu2810.kat.build</groupId>
+              <groupId>de.maggu2810.maven.build</groupId>
               <artifactId>resources</artifactId>
-              <version>${project.version}</version>
+              <version>${maven.build.resources.version}</version>
             </dependency>
           </dependencies>
         </plugin>
@@ -170,9 +171,9 @@
           </configuration>
           <dependencies>
             <dependency>
-              <groupId>de.maggu2810.kat.build</groupId>
+              <groupId>de.maggu2810.maven.build</groupId>
               <artifactId>resources</artifactId>
-              <version>${project.version}</version>
+              <version>${maven.build.resources.version}</version>
             </dependency>
           </dependencies>
         </plugin>
@@ -207,9 +208,9 @@
           </executions>
           <dependencies>
             <dependency>
-              <groupId>de.maggu2810.kat.build</groupId>
+              <groupId>de.maggu2810.maven.build</groupId>
               <artifactId>resources</artifactId>
-              <version>${project.version}</version>
+              <version>${maven.build.resources.version}</version>
             </dependency>
           </dependencies>
         </plugin>
@@ -234,9 +235,9 @@
           </configuration>
           <dependencies>
             <dependency>
-              <groupId>de.maggu2810.kat.build</groupId>
+              <groupId>de.maggu2810.maven.build</groupId>
               <artifactId>resources</artifactId>
-              <version>${project.version}</version>
+              <version>${maven.build.resources.version}</version>
             </dependency>
           </dependencies>
         </plugin>
@@ -274,9 +275,9 @@
           </configuration>
           <dependencies>
             <dependency>
-              <groupId>de.maggu2810.kat.build</groupId>
+              <groupId>de.maggu2810.maven.build</groupId>
               <artifactId>resources</artifactId>
-              <version>${project.version}</version>
+              <version>${maven.build.resources.version}</version>
             </dependency>
           </dependencies>
         </plugin>
@@ -407,7 +408,6 @@
   </repositories>
 
   <modules>
-    <module>build</module>
     <module>bundles</module>
     <module>features</module>
   </modules>
