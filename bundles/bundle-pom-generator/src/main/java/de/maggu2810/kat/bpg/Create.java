@@ -1,3 +1,16 @@
+/*
+ * #%L
+ * KAT :: Bundle POM Generator
+ * %%
+ * Copyright (C) 2016 maggu2810
+ * %%
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * #L%
+ */
+
 package de.maggu2810.kat.bpg;
 
 import java.io.File;
@@ -29,11 +42,12 @@ public class Create implements Action {
 
     public Logger logger = LoggerFactory.getLogger(Create.class);
 
-    @Option(name = "--context", aliases = {"-c"},
-            description = "Use the given bundle context")
+    @Option(name = "--context", aliases = { "-c" }, description = "Use the given bundle context")
     String context = "0";
 
-    @Option(name = "-o", valueToShowInHelp = "",
+    @Option(
+            name = "-o",
+            valueToShowInHelp = "",
             description = "Specified the location for the output project (directory will be created if necessary and a pom.xml is placed in), otherwise stdout is used.",
             required = false, multiValued = false)
     String outPath = null;

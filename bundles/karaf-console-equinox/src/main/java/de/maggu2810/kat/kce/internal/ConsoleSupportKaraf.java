@@ -1,3 +1,16 @@
+/*
+ * #%L
+ * KAT :: Karaf Console Equinox Gateway
+ * %%
+ * Copyright (C) 2016 maggu2810
+ * %%
+ * All rights reserved. This program and the accompanying materials
+ * are made available under the terms of the Eclipse Public License v1.0
+ * which accompanies this distribution, and is available at
+ * http://www.eclipse.org/legal/epl-v10.html
+ * #L%
+ */
+
 package de.maggu2810.kat.kce.internal;
 
 import java.lang.reflect.Method;
@@ -34,7 +47,8 @@ public class ConsoleSupportKaraf {
     // This map contains all commands and that wrappers.
     private final Map<CommandProvider, List<CommandWrapper>> commands = new HashMap<>();
 
-    @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, unbind = "removeSessionFactory")
+    @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC,
+            unbind = "removeSessionFactory")
     protected void addSessionFactory(final SessionFactory sessionFactory) {
         sessionFactories.add(sessionFactory);
         register(sessionFactory.getRegistry());
@@ -46,7 +60,8 @@ public class ConsoleSupportKaraf {
         }
     }
 
-    @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC, unbind = "removeCommandProvider")
+    @Reference(cardinality = ReferenceCardinality.MULTIPLE, policy = ReferencePolicy.DYNAMIC,
+            unbind = "removeCommandProvider")
     protected void addCommandProvider(final CommandProvider commandProvider) {
         final List<CommandWrapper> wrappersNew;
         final List<CommandWrapper> wrappersOld;
@@ -100,8 +115,7 @@ public class ConsoleSupportKaraf {
         return wrappers;
     }
 
-    private void register(final Collection<SessionFactory> sessionFactories,
-            final Collection<CommandWrapper> wrappers) {
+    private void register(final Collection<SessionFactory> sessionFactories, final Collection<CommandWrapper> wrappers) {
         for (final SessionFactory sessionFactory : sessionFactories) {
             register(sessionFactory.getRegistry(), wrappers);
         }
@@ -131,8 +145,7 @@ public class ConsoleSupportKaraf {
         }
     }
 
-    private void unregister(final Collection<SessionFactory> sessionFactories,
-            final Collection<CommandWrapper> wrappers) {
+    private void unregister(final Collection<SessionFactory> sessionFactories, final Collection<CommandWrapper> wrappers) {
         for (final SessionFactory sessionFactory : sessionFactories) {
             unregister(sessionFactory.getRegistry(), wrappers);
         }
