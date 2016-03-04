@@ -16,12 +16,11 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
-
     <java.version>1.7</java.version>
     <maven.compiler.source>${java.version}</maven.compiler.source>
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
-
+    <license.skipUpdateLicense>false</license.skipUpdateLicense>
     <karaf.version>4.0.4</karaf.version>
   </properties>
 
@@ -31,6 +30,13 @@
       <url>http://www.eclipse.org/legal/epl-v10.html</url>
     </license>
   </licenses>
+
+  <organization>
+    <name>maggu2810</name>
+    <url>https://github.com/maggu2810/</url>
+  </organization>
+
+  <inceptionYear>2016</inceptionYear>
 
   <scm>
     <connection>scm:git:https://github.com/maggu2810/kat.git</connection>
@@ -122,16 +128,117 @@
     <pluginManagement>
       <plugins>
         <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>findbugs-maven-plugin</artifactId>
+          <version>3.0.3</version>
+          <configuration>
+            <findbugsXmlOutput>true</findbugsXmlOutput>
+            <findbugsXmlWithMessages>true</findbugsXmlWithMessages>
+            <xmlOutput>true</xmlOutput>
+            <effort>Max</effort>
+            <threshold>Low</threshold>
+            <maxRank>20</maxRank>
+            <excludeFilterFile>findbugs/findbugs_exclude.xml</excludeFilterFile>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>de.maggu2810.kat.build</groupId>
+              <artifactId>resources</artifactId>
+              <version>${project.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+        <plugin>
+          <groupId>net.revelc.code</groupId>
+          <artifactId>formatter-maven-plugin</artifactId>
+          <version>0.5.2</version>
+          <executions>
+            <execution>
+              <phase>process-sources</phase>
+              <goals>
+                <goal>format</goal>
+              </goals>
+            </execution>
+          </executions>
+          <configuration>
+            <directories>
+              <directory>${project.build.sourceDirectory}</directory>
+              <directory>${project.build.directory}/generated-sources</directory>
+            </directories>
+            <lineEnding>LF</lineEnding>
+            <configFile>eclipse/code-formatter.xml</configFile>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>de.maggu2810.kat.build</groupId>
+              <artifactId>resources</artifactId>
+              <version>${project.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+        <plugin>
           <groupId>org.apache.karaf.tooling</groupId>
           <artifactId>karaf-maven-plugin</artifactId>
           <version>${karaf.version}</version>
           <extensions>true</extensions>
         </plugin>
         <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>license-maven-plugin</artifactId>
+          <version>1.9-SNAPSHOT</version>
+          <configuration>
+            <licenseName>epl_only_v1</licenseName>
+            <licenseResolver>classpath://licenses</licenseResolver>
+            <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
+            <emptyLineAfterHeader>true</emptyLineAfterHeader>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>update-file-header</goal>
+              </goals>
+              <phase>process-sources</phase>
+              <configuration>
+                <excludes>
+                  <exclude>**/feature.xml</exclude>
+                </excludes>
+              </configuration>
+            </execution>
+          </executions>
+          <dependencies>
+            <dependency>
+              <groupId>de.maggu2810.kat.build</groupId>
+              <artifactId>resources</artifactId>
+              <version>${project.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+        <plugin>
           <groupId>org.apache.felix</groupId>
           <artifactId>maven-bundle-plugin</artifactId>
           <version>3.0.1</version>
           <extensions>true</extensions>
+          <configuration>
+            <instructions>
+              <_dsannotations>*</_dsannotations>
+            </instructions>
+          </configuration>
+        </plugin>
+        <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-checkstyle-plugin</artifactId>
+          <version>2.17</version>
+          <configuration>
+            <configLocation>checkstyle/checkstyle.xml</configLocation>
+            <violationSeverity>info</violationSeverity>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>de.maggu2810.kat.build</groupId>
+              <artifactId>resources</artifactId>
+              <version>${project.version}</version>
+            </dependency>
+          </dependencies>
         </plugin>
         <plugin>
           <groupId>org.apache.felix</groupId>
@@ -156,9 +263,29 @@
           <version>2.10.3</version>
         </plugin>
         <plugin>
+          <groupId>org.apache.maven.plugins</groupId>
+          <artifactId>maven-pmd-plugin</artifactId>
+          <version>3.5</version>
+          <configuration>
+            <linkXRef>false</linkXRef>
+            <rulesets>
+              <ruleset>pmd/pmd_ruleset.xml</ruleset>
+            </rulesets>
+          </configuration>
+          <dependencies>
+            <dependency>
+              <groupId>de.maggu2810.kat.build</groupId>
+              <artifactId>resources</artifactId>
+              <version>${project.version}</version>
+            </dependency>
+          </dependencies>
+        </plugin>
+        <plugin>
           <artifactId>maven-release-plugin</artifactId>
           <version>2.5.2</version>
-          <!--<configuration><preparationGoals>clean install</preparationGoals></configuration>-->
+          <configuration>
+            <preparationGoals>clean install</preparationGoals>
+          </configuration>
         </plugin>
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
@@ -174,9 +301,57 @@
           <artifactId>maven-source-plugin</artifactId>
           <version>2.4</version>
         </plugin>
+        <plugin>
+          <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+          <artifactId>whitespace-maven-plugin</artifactId>
+          <version>1.0.4</version>
+          <executions>
+            <execution>
+              <phase>process-sources</phase>
+              <goals>
+                <goal>trim</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
       </plugins>
     </pluginManagement>
+
+    <plugins>
+      <plugin>
+        <groupId>com.github.dantwining.whitespace-maven-plugin</groupId>
+        <artifactId>whitespace-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>buildsystem</id>
+      <properties>
+        <license.skipUpdateLicense>true</license.skipUpdateLicense>
+      </properties>
+      <build>
+        <defaultGoal>clean install findbugs:findbugs pmd:pmd pmd:cpd checkstyle:checkstyle javadoc:aggregate</defaultGoal>
+      </build>
+    </profile>
+    <profile>
+      <id>preCommit</id>
+      <build>
+        <defaultGoal>clean install findbugs:check pmd:check checkstyle:check javadoc:javadoc</defaultGoal>
+      </build>
+    </profile>
+  </profiles>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jxr-plugin</artifactId>
+        <version>2.5</version>
+      </plugin>
+    </plugins>
+  </reporting>
 
   <repositories>
     <repository>
@@ -222,6 +397,7 @@
   </repositories>
 
   <modules>
+    <module>build</module>
     <module>bundles</module>
     <module>features</module>
   </modules>
