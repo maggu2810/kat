@@ -192,6 +192,7 @@
             <licenseResolver>classpath://licenses</licenseResolver>
             <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
             <emptyLineAfterHeader>true</emptyLineAfterHeader>
+            <ignoreNoFileToScan>true</ignoreNoFileToScan>
           </configuration>
           <executions>
             <execution>
