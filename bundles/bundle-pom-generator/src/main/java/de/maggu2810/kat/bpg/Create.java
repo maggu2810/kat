@@ -63,14 +63,6 @@ public class Create implements Action {
     @Reference
     BundleService bundleService;
 
-    public void setBundleService(BundleService bundleService) {
-        this.bundleService = bundleService;
-    }
-
-    public void setBundleContext(BundleContext bundleContext) {
-        this.bundleContext = bundleContext;
-    }
-
     @Override
     public Object execute() throws Exception {
         final Model model = new Model();
