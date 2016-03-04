@@ -10,8 +10,7 @@
  * http://www.eclipse.org/legal/epl-v10.html
  * #L%
  */
-
-/*******************************************************************************
+/* ******************************************************************************
  * Copyright (c) 2003, 2011 IBM Corporation and others.
  * All rights reserved. This program and the accompanying materials
  * are made available under the terms of the Eclipse Public License v1.0
@@ -22,7 +21,7 @@
  *     IBM Corporation - initial API and implementation
  *     Lazar Kirchev, SAP AG - derivative implementation from FrameworkCommandInterpreter
  *     Markus Rathgeb - fit the original implementation to the karaf-equinox-console project
- *******************************************************************************/
+ * *****************************************************************************/
 
 /*
  * This is a modified version of the org.eclipse.equinox.console.command.adapter.CustomCommandInterpreter
@@ -37,12 +36,12 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.lang.reflect.Modifier;
 import java.net.URL;
+import java.nio.charset.Charset;
 import java.util.Arrays;
 import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.Iterator;
 import java.util.List;
-
 import org.apache.karaf.shell.api.console.Session;
 import org.eclipse.osgi.framework.console.CommandInterpreter;
 import org.osgi.framework.Bundle;
@@ -50,20 +49,34 @@ import org.osgi.framework.Bundle;
 public class CustomCommandInterpreter implements CommandInterpreter {
 
     private final PrintStream out = System.out;
-    /** Strings used to format other strings */
-    private final String tab = "\t"; //$NON-NLS-1$
-    private final String newline = "\r\n"; //$NON-NLS-1$
+
+    /**
+     * Strings used to format other strings.
+     */
+    private static final String tab = "\t"; //$NON-NLS-1$
+    private static final String newline = "\r\n"; //$NON-NLS-1$
     private final Iterator<Object> arguments;
     private final Session commandSession;
+
     /**
      * The maximum number of lines to print without user prompt.
+     *
+     * <p>
      * 0 means no user prompt is required, the window is scrollable.
      */
-    protected static int maxLineCount;
+    private static final int maxLineCount = 0;
 
-    /** The number of lines printed without user prompt. */
+    /**
+     * The number of lines printed without user prompt.
+     */
     protected int currentLineCount;
 
+    /**
+     * Constructor.
+     *
+     * @param commandSession the command session
+     * @param args the arguments
+     */
     public CustomCommandInterpreter(final Session commandSession, final List<Object> args) {
         this.commandSession = commandSession;
         arguments = args.iterator();
@@ -90,19 +103,19 @@ public class CustomCommandInterpreter implements CommandInterpreter {
     }
 
     /**
-     * Prints an object to the outputstream
+     * Prints an object to the output stream.
      *
-     * @param o the object to be printed
+     * @param obj the object to be printed
      */
     @Override
-    public void print(final Object o) {
+    public void print(final Object obj) {
         check4More();
-        out.print(o);
+        out.print(obj);
         out.flush();
     }
 
     /**
-     * Prints a empty line to the outputstream
+     * Prints a empty line to the output stream.
      */
     @Override
     public void println() {
@@ -110,70 +123,73 @@ public class CustomCommandInterpreter implements CommandInterpreter {
     }
 
     /**
-     * Print a stack trace including nested exceptions.
+     * Prints an object to the output medium (appended with newline character).
      *
-     * @param t The offending exception
+     * <p>
+     * If running on the target environment, the user is prompted with '--more' if more than the configured number of
+     * lines have been printed without user prompt. This enables the user of the program to have control over scrolling.
+     *
+     * <p>
+     * For this to work properly you should not embed "\n" etc. into the string.
+     *
+     * @param obj the object to be printed
      */
     @Override
-    public void printStackTrace(final Throwable t) {
-        t.printStackTrace(out);
+    public void println(final Object obj) {
+        if (obj == null) {
+            return;
+        }
+        synchronized (out) {
+            check4More();
+            printline(obj);
+            currentLineCount++;
+            currentLineCount += obj.toString().length() / 80;
+        }
+    }
 
-        final Method[] methods = t.getClass().getMethods();
+    /**
+     * Print a stack trace including nested exceptions.
+     *
+     * @param throwable The offending exception
+     */
+    @Override
+    public void printStackTrace(final Throwable throwable) {
+        throwable.printStackTrace(out);
+
+        final Method[] methods = throwable.getClass().getMethods();
 
         final int size = methods.length;
-        final Class<Throwable> throwable = Throwable.class;
+        final Class<Throwable> throwableCass = Throwable.class;
 
         for (int i = 0; i < size; i++) {
             final Method method = methods[i];
 
             if (Modifier.isPublic(method.getModifiers()) && method.getName().startsWith("get") //$NON-NLS-1$
-                    && throwable.isAssignableFrom(method.getReturnType()) && (method.getParameterTypes().length == 0)) {
+                    && throwableCass.isAssignableFrom(method.getReturnType()) && method.getParameterTypes().length == 0) {
                 try {
-                    final Throwable nested = (Throwable) method.invoke(t, (Object) null);
+                    final Throwable nested = (Throwable) method.invoke(throwable, (Object) null);
 
-                    if ((nested != null) && (nested != t)) {
+                    if (nested != null && nested != throwable) {
                         out.println("Nested Exception");
                         printStackTrace(nested);
                     }
-                } catch (final IllegalAccessException e) {
-                } catch (final InvocationTargetException e) {
+                } catch (final IllegalAccessException | InvocationTargetException e) {
+                    System.err.println(e);
                 }
             }
         }
     }
 
     /**
-     * Prints an object to the output medium (appended with newline character).
-     * <p>
-     * If running on the target environment, the user is prompted with '--more' if more than the configured number of
-     * lines have been printed without user prompt. This enables the user of the program to have control over scrolling.
-     * <p>
-     * For this to work properly you should not embed "\n" etc. into the string.
-     *
-     * @param o the object to be printed
-     */
-    @Override
-    public void println(final Object o) {
-        if (o == null) {
-            return;
-        }
-        synchronized (out) {
-            check4More();
-            printline(o);
-            currentLineCount++;
-            currentLineCount += o.toString().length() / 80;
-        }
-    }
-
-    /**
      * Prints a string to the output medium (appended with newline character).
+     *
      * <p>
      * This method does not increment the line counter for the 'more' prompt.
      *
-     * @param o the string to be printed
+     * @param str the string to be printed
      */
-    private void printline(final Object o) {
-        print(o + newline);
+    private void printline(final Object str) {
+        print(str + newline);
     }
 
     /**
@@ -207,7 +223,7 @@ public class CustomCommandInterpreter implements CommandInterpreter {
     }
 
     /**
-     * Prints the given bundle resource if it exists
+     * Prints the given bundle resource if it exists.
      *
      * @param bundle the bundle containing the resource
      * @param resource the resource to print
@@ -224,17 +240,18 @@ public class CustomCommandInterpreter implements CommandInterpreter {
                 int read = 0;
                 try {
                     while ((read = in.read(buffer)) != -1) {
-                        print(new String(buffer, 0, read));
+                        print(new String(buffer, 0, read, Charset.defaultCharset()));
                     }
                 } finally {
                     if (in != null) {
                         try {
                             in.close();
                         } catch (final IOException e) {
+                            System.err.println(e);
                         }
                     }
                 }
-            } catch (final Exception e) {
+            } catch (final IOException e) {
                 System.err.println(e);
             }
         } else {
@@ -243,8 +260,7 @@ public class CustomCommandInterpreter implements CommandInterpreter {
     }
 
     /**
-     * Answers the number of lines output to the console
-     * window should scroll without user interaction.
+     * Answers the number of lines output to the console window should scroll without user interaction.
      *
      * @return The number of lines to scroll.
      */
@@ -253,23 +269,20 @@ public class CustomCommandInterpreter implements CommandInterpreter {
     }
 
     /**
-     * Displays the more... prompt if the max line count has been reached
-     * and waits for the operator to hit enter.
+     * Displays the more... prompt if the max line count has been reached and waits for the operator to hit enter.
      *
      */
     private void check4More() {
         final int max = getMaximumLinesToScroll();
-        if (max > 0) {
-            if (currentLineCount >= max) {
-                out.print("-- More...Press Enter to Continue...");
-                out.flush();
-                try {
-                    System.in.read();
-                } catch (final IOException e) {
-                    e.printStackTrace();
-                } // wait for user entry
-                resetLineCount(); // Reset the line counter for the 'more' prompt
-            }
+        if (max > 0 && currentLineCount >= max) {
+            out.print("-- More...Press Enter to Continue...");
+            out.flush();
+            try {
+                System.in.read();
+            } catch (final IOException e) {
+                e.printStackTrace();
+            } // wait for user entry
+            resetLineCount(); // Reset the line counter for the 'more' prompt
         }
     }
 
@@ -281,8 +294,9 @@ public class CustomCommandInterpreter implements CommandInterpreter {
     }
 
     /**
-     * Answer a string (may be as many lines as you like) with help
-     * texts that explain the command.
+     * Answer a string (may be as many lines as you like) with help texts that explain the command.
+     *
+     * @return the help texts
      */
     public String getHelp() {
         final StringBuffer help = new StringBuffer(256);

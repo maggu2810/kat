@@ -18,6 +18,11 @@ import org.eclipse.osgi.framework.console.CommandProvider;
 
 public class CommandWrapperGetHelp extends CommandWrapper {
 
+    /**
+     * Constructor.
+     *
+     * @param commandProvider the command provider
+     */
     public CommandWrapperGetHelp(final CommandProvider commandProvider) {
         super(commandProvider);
     }

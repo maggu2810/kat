@@ -14,7 +14,6 @@
 package de.maggu2810.kat.kce.internal;
 
 import java.util.List;
-
 import org.apache.karaf.shell.api.console.Command;
 import org.apache.karaf.shell.api.console.Completer;
 import org.apache.karaf.shell.api.console.Parser;
@@ -26,6 +25,11 @@ public abstract class CommandWrapper implements Command {
 
     protected final CommandProvider commandProvider;
 
+    /**
+     * Constructor.
+     *
+     * @param commandProvider the command provider
+     */
     public CommandWrapper(final CommandProvider commandProvider) {
         this.commandProvider = commandProvider;
     }
@@ -42,6 +46,8 @@ public abstract class CommandWrapper implements Command {
 
         return null;
     }
+
+    protected abstract void execute(final CommandInterpreter interpreter);
 
     @Override
     public final Completer getCompleter(final boolean arg0) {
@@ -69,7 +75,5 @@ public abstract class CommandWrapper implements Command {
 
     @Override
     public abstract String getName();
-
-    protected abstract void execute(final CommandInterpreter interpreter);
 
 }

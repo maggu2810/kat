@@ -14,7 +14,6 @@
 package de.maggu2810.kat.kce.internal;
 
 import java.lang.reflect.Method;
-
 import org.eclipse.osgi.framework.console.CommandInterpreter;
 import org.eclipse.osgi.framework.console.CommandProvider;
 
@@ -22,6 +21,12 @@ public class CommandWrapperMethod extends CommandWrapper {
 
     private final Method method;
 
+    /**
+     * Constructor.
+     *
+     * @param commandProvider the command provider
+     * @param method the method
+     */
     public CommandWrapperMethod(final CommandProvider commandProvider, final Method method) {
         super(commandProvider);
         this.method = method;
