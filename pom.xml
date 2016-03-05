@@ -355,6 +355,19 @@
     </plugins>
   </reporting>
 
+  <pluginRepositories>
+    <pluginRepository>
+      <id>github-maggu2810-mvn-repo</id>
+      <url>https://github.com/maggu2810/mvn-repo/raw/master</url>
+      <releases>
+        <enabled>false</enabled>
+      </releases>
+      <snapshots>
+        <enabled>true</enabled>
+      </snapshots>
+    </pluginRepository>
+  </pluginRepositories>
+
   <repositories>
     <repository>
       <id>bintray-maggu2810-maven</id>
@@ -398,7 +411,7 @@
     </repository>
     <repository>
       <id>github-maggu2810-mvn-repo</id>
-      <url>https://raw.github.com/maggu2810/mvn-repo/</url>
+      <url>https://github.com/maggu2810/mvn-repo/raw/master</url>
       <releases>
         <enabled>false</enabled>
       </releases>
