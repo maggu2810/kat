@@ -43,6 +43,95 @@
     </plugins>
   </build>
 
+  <profiles>
+    <profile>
+      <id>bundle-unpack-osgi-for-eclipse</id>
+      <activation>
+        <file>
+          <exists>eclipse</exists>
+        </file>
+        <!--<file>-->
+        <!-- ${project.*} expressions are not supported during profile activation -->
+        <!--<exists>${project.build.directory}/${project.build.finalName}.jar</exists>-->
+        <!--</file>-->
+      </activation>
+      <properties>
+        <eclipse.project.dir>${project.basedir}/eclipse</eclipse.project.dir>
+      </properties>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>unpack</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>unpack</goal>
+                </goals>
+                <configuration>
+                  <artifactItems>
+                    <artifactItem>
+                      <groupId>${project.groupId}</groupId>
+                      <artifactId>${project.artifactId}</artifactId>
+                      <version>${project.version}</version>
+                      <type>jar</type>
+                    </artifactItem>
+                  </artifactItems>
+                  <includes>OSGI-INF\/**,META-INF\/**</includes>
+                  <outputDirectory>${eclipse.project.dir}</outputDirectory>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+          <!--<plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-antrun-plugin</artifactId>
+            <version>1.8</version>
+            <executions>
+              <execution>
+                <phase>package</phase>
+                <goals>
+                  <goal>run</goal>
+                </goals>
+                <configuration>
+                  <target>
+                    <echo>Copy pom.xml</echo>
+                    <copy file="${project.basedir}/pom.xml" tofile="${eclipse.project.dir}/pom.xml"/>
+                    <echo>Copy JAR: ${project.build.finalName}</echo>
+                    <copy file="${project.build.directory}/${project.build.finalName}.jar" tofile="${eclipse.project.dir}/${project.build.finalName}.jar"/>
+                  </target>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>-->
+          <!--<plugin>
+            <artifactId>maven-resources-plugin</artifactId>
+            <executions>
+              <execution>
+                <id>copy-resources</id>
+                <phase>package</phase>
+                <goals>
+                  <goal>copy-resources</goal>
+                </goals>
+                <configuration>
+                  <outputDirectory>${eclipse.project.dir}/src</outputDirectory>
+                  <resources>
+                    <resource>
+                      <directory>${project.basedir}/src/main/java</directory>
+                      <filtering>false</filtering>
+                    </resource>
+                  </resources>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>-->
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
+
   <modules>
     <module>bundle-pom-generator</module>
     <module>karaf-console-equinox</module>

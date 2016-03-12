@@ -21,6 +21,8 @@
     <maven.compiler.target>${java.version}</maven.compiler.target>
     <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
     <license.skipUpdateLicense>false</license.skipUpdateLicense>
+    <license.shortcut>epl_only_v1</license.shortcut>
+
     <karaf.version>4.0.4</karaf.version>
     <maven.build.resources.version>1.1</maven.build.resources.version>
   </properties>
@@ -61,64 +63,6 @@
       <url>http://oss.jfrog.org/artifactory/simple/oss-snapshot-local/</url>
     </snapshotRepository>
   </distributionManagement>
-
-  <dependencyManagement>
-    <dependencies>
-      <dependency>
-        <groupId>org.apache.karaf.shell</groupId>
-        <artifactId>org.apache.karaf.shell.core</artifactId>
-        <version>${karaf.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.apache.karaf.bundle</groupId>
-        <artifactId>org.apache.karaf.bundle.core</artifactId>
-        <version>${karaf.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.apache.maven</groupId>
-        <artifactId>maven-model</artifactId>
-        <version>3.3.9</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.codehaus.plexus</groupId>
-        <artifactId>plexus-utils</artifactId>
-        <version>3.0.22</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.eclipse.birt.runtime</groupId>
-        <artifactId>org.eclipse.osgi</artifactId>
-        <version>3.9.1.v20130814-1242</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.osgi</groupId>
-        <artifactId>osgi.core</artifactId>
-        <version>6.0.0</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.osgi</groupId>
-        <artifactId>osgi.cmpn</artifactId>
-        <version>6.0.0</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>1.7.7</version>
-      </dependency>
-
-      <dependency>
-        <groupId>junit</groupId>
-        <artifactId>junit</artifactId>
-        <version>4.11</version>
-      </dependency>
-    </dependencies>
-  </dependencyManagement>
 
   <build>
     <pluginManagement>
@@ -183,10 +127,10 @@
           <artifactId>license-maven-plugin</artifactId>
           <version>1.8.0.sp1</version>
           <configuration>
-            <licenseName>epl_only_v1</licenseName>
-            <licenseResolver>classpath://licenses</licenseResolver>
+            <licenseName>${license.shortcut}</licenseName>
+            <!--<licenseResolver>classpath://licenses</licenseResolver>-->
             <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
-            <emptyLineAfterHeader>true</emptyLineAfterHeader>
+            <!--<emptyLineAfterHeader>true</emptyLineAfterHeader>-->
             <ignoreNoFileToScan>true</ignoreNoFileToScan>
           </configuration>
           <executions>
@@ -196,6 +140,9 @@
               </goals>
               <phase>process-sources</phase>
               <configuration>
+                <includes>
+                  <include>**/*.java</include>
+                </includes>
                 <excludes>
                   <exclude>**/feature.xml</exclude>
                 </excludes>
@@ -217,6 +164,7 @@
           <extensions>true</extensions>
           <configuration>
             <instructions>
+              <Bundle-SymbolicName>${project.artifactId}</Bundle-SymbolicName>
               <_dsannotations>*</_dsannotations>
             </instructions>
           </configuration>
@@ -321,6 +269,60 @@
       </plugin>
     </plugins>
   </build>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>org.apache.karaf.shell</groupId>
+        <artifactId>org.apache.karaf.shell.core</artifactId>
+        <version>${karaf.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.karaf.bundle</groupId>
+        <artifactId>org.apache.karaf.bundle.core</artifactId>
+        <version>${karaf.version}</version>
+      </dependency>
+      <dependency>
+        <groupId>org.apache.maven</groupId>
+        <artifactId>maven-model</artifactId>
+        <version>3.3.9</version>
+      </dependency>
+      <dependency>
+        <groupId>org.codehaus.plexus</groupId>
+        <artifactId>plexus-utils</artifactId>
+        <version>3.0.22</version>
+      </dependency>
+      <dependency>
+        <groupId>org.eclipse.birt.runtime</groupId>
+        <artifactId>org.eclipse.osgi</artifactId>
+        <version>3.9.1.v20130814-1242</version>
+      </dependency>
+      <dependency>
+        <!--Apache License, Version 2.0-->
+        <groupId>org.osgi</groupId>
+        <artifactId>osgi.core</artifactId>
+        <version>6.0.0</version>
+      </dependency>
+      <dependency>
+        <!--Apache License, Version 2.0-->
+        <groupId>org.osgi</groupId>
+        <artifactId>osgi.cmpn</artifactId>
+        <version>6.0.0</version>
+      </dependency>
+      <dependency>
+        <!--MIT License-->
+        <groupId>org.slf4j</groupId>
+        <artifactId>slf4j-api</artifactId>
+        <version>1.7.7</version>
+      </dependency>
+      <dependency>
+        <!--Eclipse Public License 1.0-->
+        <groupId>junit</groupId>
+        <artifactId>junit</artifactId>
+        <version>4.12</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
 
   <profiles>
     <profile>
