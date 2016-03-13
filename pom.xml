@@ -374,6 +374,16 @@
       </snapshots>
     </pluginRepository>
     <pluginRepository>
+      <id>bintray-maggu2810-maven</id>
+      <url>http://dl.bintray.com/maggu2810/maven/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
+      </snapshots>
+    </pluginRepository>
+    <pluginRepository>
       <id>github-maggu2810-mvn-repo</id>
       <url>https://github.com/maggu2810/mvn-repo/raw/master</url>
       <releases>
@@ -386,16 +396,6 @@
   </pluginRepositories>
 
   <repositories>
-    <repository>
-      <id>bintray-maggu2810-maven</id>
-      <url>http://dl.bintray.com/maggu2810/maven/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
     <repository>
       <id>jCenter</id>
       <url>https://jcenter.bintray.com/</url>
@@ -424,6 +424,16 @@
       </releases>
       <snapshots>
         <enabled>true</enabled>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>bintray-maggu2810-maven</id>
+      <url>http://dl.bintray.com/maggu2810/maven/</url>
+      <releases>
+        <enabled>true</enabled>
+      </releases>
+      <snapshots>
+        <enabled>false</enabled>
       </snapshots>
     </repository>
     <repository>
