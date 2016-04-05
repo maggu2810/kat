@@ -24,7 +24,7 @@
     <license.shortcut>epl_only_v1</license.shortcut>
 
     <karaf.version>4.0.4</karaf.version>
-    <maven.build.resources.version>1.1</maven.build.resources.version>
+    <maven.build.resources.version>1.2</maven.build.resources.version>
   </properties>
 
   <licenses>
@@ -178,6 +178,11 @@
             <violationSeverity>info</violationSeverity>
           </configuration>
           <dependencies>
+            <dependency>
+              <groupId>com.puppycrawl.tools</groupId>
+              <artifactId>checkstyle</artifactId>
+              <version>6.17</version>
+            </dependency>
             <dependency>
               <groupId>de.maggu2810.maven.build</groupId>
               <artifactId>resources</artifactId>
