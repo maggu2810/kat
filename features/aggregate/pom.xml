@@ -51,13 +51,6 @@
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
-      <artifactId>jupnp</artifactId>
-      <version>${project.version}</version>
-      <classifier>features</classifier>
-      <type>xml</type>
-    </dependency>
-    <dependency>
-      <groupId>${project.groupId}</groupId>
       <artifactId>kat</artifactId>
       <version>${project.version}</version>
       <classifier>features</classifier>
