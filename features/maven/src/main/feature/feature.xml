@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
 
+  <repository>mvn:${project.groupId}/apache-commons/${project.version}/xml/features</repository>
+  <repository>mvn:${project.groupId}/plexus/${project.version}/xml/features</repository>
+
   <feature name="kat-maven-model" version="3.3.9">
     <feature prerequisite="true" dependency="false">wrap</feature>
     <feature>kat-apache-commons-lang3</feature>
