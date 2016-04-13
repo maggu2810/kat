@@ -27,7 +27,6 @@
     <module>plexus</module>
     <module>xtext</module>
 
-    <module>aggregate</module>
     <module>verify</module>
   </modules>
 
