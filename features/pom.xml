@@ -19,6 +19,7 @@
     <module>apache-httpcomponents</module>
     <module>equinox</module>
     <module>gson</module>
+    <module>jersey-min</module>
     <module>jmdns</module>
     <module>jupnp</module>
     <module>kat</module>

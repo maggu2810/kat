@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
+
+  <feature name="kat-${project.artifactId}" description="${project.name}" version="${jersey.version}">
+    <bundle start-level="80">mvn:org.glassfish.jersey.containers/jersey-container-servlet/${jersey.version}</bundle>
+    <bundle start-level="80">mvn:org.glassfish.jersey.media/jersey-media-sse/${jersey.version}</bundle>
+    <bundle start-level="80">mvn:org.glassfish.jersey.media/jersey-media-multipart/${jersey.version}</bundle>
+
+    <feature dependency="true">http</feature>
+
+    <bundle start-level="80" dependency="true">mvn:org.glassfish.jersey.containers/jersey-container-servlet-core/${jersey.version}</bundle>
+    <bundle start-level="80" dependency="true">mvn:org.glassfish.jersey.core/jersey-common/${jersey.version}</bundle>
+    <bundle start-level="80" dependency="true">mvn:org.glassfish.jersey.bundles.repackaged/jersey-guava/${jersey.version}</bundle>
+    <bundle start-level="80" dependency="true">mvn:org.glassfish.jersey.core/jersey-server/${jersey.version}</bundle>
+    <bundle start-level="80" dependency="true">mvn:org.glassfish.jersey.core/jersey-client/${jersey.version}</bundle>
+    <bundle start-level="80" dependency="true">mvn:org.glassfish.jersey.media/jersey-media-jaxb/${jersey.version}</bundle>
+
+    <bundle start-level="80" dependency="true">mvn:org.glassfish.hk2/hk2-api/2.4.0-b34</bundle>
+    <bundle start-level="80" dependency="true">mvn:org.glassfish.hk2/hk2-locator/2.4.0-b34</bundle>
+    <bundle start-level="80" dependency="true">mvn:org.glassfish.hk2/hk2-utils/2.4.0-b34</bundle>
+    <bundle start-level="80" dependency="true">mvn:org.glassfish.hk2/osgi-resource-locator/1.0.1</bundle>
+    <bundle start-level="80" dependency="true">mvn:org.glassfish.hk2.external/javax.inject/2.4.0-b34</bundle>
+    <bundle start-level="80" dependency="true">mvn:org.glassfish.hk2.external/aopalliance-repackaged/2.4.0-b34</bundle>
+
+    <bundle start-level="80" dependency="true">mvn:javax.annotation/javax.annotation-api/1.2</bundle>
+    <bundle start-level="80" dependency="true">mvn:javax.validation/validation-api/1.1.0.Final</bundle>
+    <bundle start-level="80" dependency="true">mvn:javax.ws.rs/javax.ws.rs-api/2.0.1</bundle>
+
+    <bundle start-level="80" dependency="true">mvn:org.javassist/javassist/3.18.1-GA</bundle>
+    <bundle start-level="80" dependency="true">mvn:org.jvnet.mimepull/mimepull/1.9.6</bundle>
+  </feature>
+
+</features>

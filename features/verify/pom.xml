@@ -44,6 +44,13 @@
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
+      <artifactId>jersey-min</artifactId>
+      <version>${project.version}</version>
+      <classifier>features</classifier>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
       <artifactId>jmdns</artifactId>
       <version>${project.version}</version>
       <classifier>features</classifier>
@@ -182,6 +189,30 @@
                 <descriptor>mvn:org.apache.karaf.features/framework/${karaf.version}/xml/features</descriptor>
                 <descriptor>mvn:org.apache.karaf.features/standard/${karaf.version}/xml/features</descriptor>
                 <descriptor>mvn:${project.groupId}/gson/${project.version}/xml/features</descriptor>
+              </descriptors>
+              <distribution>org.apache.karaf.features:framework</distribution>
+              <javase>${java.version}</javase>
+              <framework>
+                <feature>framework</feature>
+              </framework>
+              <features>
+                <feature>kat-*</feature>
+              </features>
+              <verifyTransitive>false</verifyTransitive>
+              <ignoreMissingConditions>true</ignoreMissingConditions>
+            </configuration>
+          </execution>
+          <execution>
+            <id>verify-jersey-min</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>verify</goal>
+            </goals>
+            <configuration>
+              <descriptors>
+                <descriptor>mvn:org.apache.karaf.features/framework/${karaf.version}/xml/features</descriptor>
+                <descriptor>mvn:org.apache.karaf.features/standard/${karaf.version}/xml/features</descriptor>
+                <descriptor>mvn:${project.groupId}/jersey-min/${project.version}/xml/features</descriptor>
               </descriptors>
               <distribution>org.apache.karaf.features:framework</distribution>
               <javase>${java.version}</javase>
