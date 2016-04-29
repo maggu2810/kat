@@ -26,6 +26,7 @@
     <module>maven</module>
     <module>paho</module>
     <module>plexus</module>
+    <module>swagger-jersey2</module>
     <module>xtext</module>
 
     <module>verify</module>
