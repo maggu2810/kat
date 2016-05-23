@@ -23,7 +23,7 @@
     <license.skipUpdateLicense>false</license.skipUpdateLicense>
     <license.shortcut>epl_only_v1</license.shortcut>
 
-    <karaf.version>4.0.4</karaf.version>
+    <karaf.version>4.0.5</karaf.version>
     <maven.build.resources.version>1.2</maven.build.resources.version>
   </properties>
 
