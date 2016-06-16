@@ -3,7 +3,7 @@
 
   <feature name="kat-plexus-utils" version="3.0.22">
     <feature prerequisite="true" dependency="false">wrap</feature>
-    <bundle>wrap:mvn:org.codehaus.plexus/plexus-utils/3.0.22</bundle>
+    <bundle>wrap:mvn:org.codehaus.plexus/plexus-utils/3.0.22$Bundle-SymbolicName=plexus-utils&amp;Bundle-Version=3.0.22&amp;Import-Package=*</bundle>
   </feature>
 
 </features>

@@ -6,9 +6,9 @@
 
   <feature name="kat-maven-model" version="3.3.9">
     <feature prerequisite="true" dependency="false">wrap</feature>
-    <feature>kat-apache-commons-lang3</feature>
-    <feature>kat-plexus-utils</feature>
-    <bundle>wrap:mvn:org.apache.maven/maven-model/3.3.9</bundle>
+    <feature dependency="true">kat-apache-commons-lang3</feature>
+    <feature dependency="true">kat-plexus-utils</feature>
+    <bundle>wrap:mvn:org.apache.maven/maven-model/3.3.9$Bundle-SymbolicName=maven-model&amp;Bundle-Version=3.3.9&amp;Import-Package=*</bundle>
   </feature>
 
 </features>

@@ -5,7 +5,7 @@
 
   <feature name="kat-bpg" description="KAT :: Bundle POM Generator" version='${project.version}'>
     <details>This will add command(s) to generate a POM that depends on the current installed bundles. This could be used to fill the debug IDE with all necessary artifacts.</details>
-    <feature>kat-maven-model</feature>
+    <feature dependency="true">kat-maven-model</feature>
     <feature>bundle</feature>
     <feature>shell</feature>
     <bundle>mvn:de.maggu2810.kat.bundles/bundle-pom-generator/${project.version}</bundle>
