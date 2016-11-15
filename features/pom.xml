@@ -20,6 +20,7 @@
     <module>checkerframework</module>
     <module>equinox</module>
     <module>gson</module>
+    <module>jackson</module>
     <module>jersey-min</module>
     <module>jmdns</module>
     <module>jupnp</module>

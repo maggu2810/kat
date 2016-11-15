@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
+
+  <feature name="kat-jackson-core" description="FasterXML Jackson Core" version="1.9.13">
+    <details>Core part of Jackson that defines Streaming API as well as basic shared abstractions.</details>
+    <bundle>mvn:org.codehaus.jackson/jackson-core-asl/1.9.13</bundle>
+  </feature>
+
+  <feature name="kat-jackson-mapper" description="FasterXML Jackson Mapper" version="1.9.13">
+    <details>Data Mapper package is a high-performance data binding package built on Jackson JSON processor.</details>
+    <bundle>mvn:org.codehaus.jackson/jackson-mapper-asl/1.9.13</bundle>
+    
+    <feature version="[1.9.13,1.9.13]" dependency="true">kat-jackson-core</feature>
+  </feature>
+
+</features>
