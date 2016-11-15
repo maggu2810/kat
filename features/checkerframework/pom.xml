@@ -3,29 +3,27 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>de.maggu2810.kat</groupId>
+    <groupId>de.maggu2810.kat.features</groupId>
     <artifactId>pom</artifactId>
     <version>1.7-SNAPSHOT</version>
   </parent>
 
-  <groupId>de.maggu2810.kat.bundles</groupId>
-  <artifactId>pom</artifactId>
-  <packaging>pom</packaging>
+  <artifactId>checkerframework</artifactId>
+  <packaging>feature</packaging>
 
-  <name>KAT :: Bundles</name>
+  <name>KAT :: Feature :: Checker Framework</name>
 
   <build>
     <plugins>
       <plugin>
-        <groupId>biz.aQute.bnd</groupId>
-        <artifactId>bnd-maven-plugin</artifactId>
+        <groupId>org.apache.karaf.tooling</groupId>
+        <artifactId>karaf-maven-plugin</artifactId>
+        <configuration>
+          <startLevel>80</startLevel>
+          <aggregateFeatures>true</aggregateFeatures>
+        </configuration>
       </plugin>
     </plugins>
   </build>
-
-  <modules>
-    <module>bundle-pom-generator</module>
-    <module>karaf-console-equinox</module>
-  </modules>
 
 </project>

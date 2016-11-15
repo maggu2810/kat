@@ -9,7 +9,6 @@
   </parent>
 
   <artifactId>bundle-pom-generator</artifactId>
-  <packaging>bundle</packaging>
 
   <name>KAT :: Bundle POM Generator</name>
   <description>Provides the Karaf commands for the bundle pom generation</description>
@@ -48,20 +47,5 @@
       <scope>provided</scope>
     </dependency>
   </dependencies>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.felix</groupId>
-        <artifactId>maven-bundle-plugin</artifactId>
-        <configuration>
-          <instructions>
-            <Export-Package>de.maggu2810.kat.bpg*;version=${project.version};-noimport:=true</Export-Package>
-            <Karaf-Commands>de.maggu2810.kat.bpg*</Karaf-Commands>
-          </instructions>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 
 </project>

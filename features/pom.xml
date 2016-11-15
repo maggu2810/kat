@@ -17,6 +17,7 @@
   <modules>
     <module>apache-commons</module>
     <module>apache-httpcomponents</module>
+    <module>checkerframework</module>
     <module>equinox</module>
     <module>gson</module>
     <module>jersey-min</module>

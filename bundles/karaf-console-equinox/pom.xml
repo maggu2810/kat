@@ -9,7 +9,6 @@
   </parent>
 
   <artifactId>karaf-console-equinox</artifactId>
-  <packaging>bundle</packaging>
 
   <name>KAT :: Karaf Console Equinox Gateway</name>
   <description>Karaf Console extension for Equinox console extensions</description>

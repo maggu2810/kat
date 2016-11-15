@@ -30,6 +30,13 @@
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
+      <artifactId>checkerframework</artifactId>
+      <version>${project.version}</version>
+      <classifier>features</classifier>
+      <type>xml</type>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
       <artifactId>equinox</artifactId>
       <version>${project.version}</version>
       <classifier>features</classifier>
@@ -148,6 +155,30 @@
                 <descriptor>mvn:org.apache.karaf.features/framework/${karaf.version}/xml/features</descriptor>
                 <descriptor>mvn:org.apache.karaf.features/standard/${karaf.version}/xml/features</descriptor>
                 <descriptor>mvn:${project.groupId}/apache-httpcomponents/${project.version}/xml/features</descriptor>
+              </descriptors>
+              <distribution>org.apache.karaf.features:framework</distribution>
+              <javase>${java.version}</javase>
+              <framework>
+                <feature>framework</feature>
+              </framework>
+              <features>
+                <feature>kat-*</feature>
+              </features>
+              <verifyTransitive>false</verifyTransitive>
+              <ignoreMissingConditions>true</ignoreMissingConditions>
+            </configuration>
+          </execution>
+          <execution>
+            <id>verify-checkerframework</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>verify</goal>
+            </goals>
+            <configuration>
+              <descriptors>
+                <descriptor>mvn:org.apache.karaf.features/framework/${karaf.version}/xml/features</descriptor>
+                <descriptor>mvn:org.apache.karaf.features/standard/${karaf.version}/xml/features</descriptor>
+                <descriptor>mvn:${project.groupId}/checkerframework/${project.version}/xml/features</descriptor>
               </descriptors>
               <distribution>org.apache.karaf.features:framework</distribution>
               <javase>${java.version}</javase>

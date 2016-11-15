@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
+
+  <feature name="kat-checkerframework-qualifiers" description="Checker Framework qualifiers" version="2.1.5">
+    <details>Checker Qual is the set of annotations (qualifiers) and supporting classes used by the Checker Framework to type check Java source code.</details>
+    <feature precondition="true">wrap</feature>
+    <bundle>wrap:mvn:org.checkerframework/checker-qual/2.1.5$Bundle-SymbolicName=org.checkerframework.checker-qual&amp;Bundle-Version=2.1.5&amp;Import-Package=*</bundle>
+  </feature>
+
+</features>
