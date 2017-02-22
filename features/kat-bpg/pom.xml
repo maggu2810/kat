@@ -8,10 +8,20 @@
     <version>1.7-SNAPSHOT</version>
   </parent>
 
-  <artifactId>kat</artifactId>
+  <artifactId>kat-bpg</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: KAT Feature</name>
+  <name>KAT :: Feature :: Bundle POM Generator</name>
+
+  <dependencies>
+    <!-- Direct bundle dependencies -->
+    <dependency>
+      <groupId>de.maggu2810.kat.bundles</groupId>
+      <artifactId>bundle-pom-generator</artifactId>
+      <version>${project.version}</version>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
 
   <build>
     <plugins>

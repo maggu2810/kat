@@ -24,10 +24,8 @@
     <module>jersey-min</module>
     <module>jmdns</module>
     <module>jupnp</module>
-    <module>kat</module>
-    <module>maven</module>
+    <module>kat-bpg</module>
     <module>paho</module>
-    <module>plexus</module>
     <module>swagger-jersey2</module>
     <module>xtext</module>
 
