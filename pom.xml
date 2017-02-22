@@ -24,7 +24,7 @@
     <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
 
     <bnd.version>3.3.0</bnd.version>
-    <karaf.version>4.0.7</karaf.version>
+    <karaf.version>4.0.8</karaf.version>
 
     <maven.build.resources.version>1.7</maven.build.resources.version>
     <quality.skip>false</quality.skip>
