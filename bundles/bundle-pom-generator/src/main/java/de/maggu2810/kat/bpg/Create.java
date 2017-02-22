@@ -47,7 +47,7 @@ import org.slf4j.LoggerFactory;
 @Service
 public class Create implements Action {
 
-    public Logger logger = LoggerFactory.getLogger(Create.class);
+    private Logger logger = LoggerFactory.getLogger(Create.class);
 
     @Option(name = "--context", aliases = { "-c" }, description = "Use the given bundle context")
     String context = "0";
@@ -148,6 +148,10 @@ public class Create implements Action {
         // wrap is used to generate OSGi bundles from another URL, so remove wrap...
         if (updateLocation.startsWith("wrap:")) {
             updateLocation = updateLocation.replaceFirst("wrap:", "");
+            final int wrapInstructionIndex = updateLocation.indexOf("$");
+            if (wrapInstructionIndex != -1) {
+                updateLocation = updateLocation.substring(0, wrapInstructionIndex);
+            }
         }
 
         if (updateLocation.startsWith("mvn:")) {
