@@ -11,7 +11,7 @@
   <artifactId>swagger-jersey2</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Swagger Jersey2 Feature</name>
+  <name>KAT :: Feature :: External :: Swagger Jersey2</name>
 
   <properties>
     <jersey.version>2.22.2</jersey.version>
@@ -37,18 +37,5 @@
       <scope>provided</scope>
     </dependency>
   </dependencies>-->
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.karaf.tooling</groupId>
-        <artifactId>karaf-maven-plugin</artifactId>
-        <configuration>
-          <startLevel>80</startLevel>
-          <aggregateFeatures>true</aggregateFeatures>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
 
 </project>

@@ -23,16 +23,20 @@
 
   <repository>mvn:${project.groupId}/apache-httpcomponents/${project.version}/xml/features</repository>
 
+<!-- Deactivated as long as the artifacts are not available on Maven Central -->
+
+<!--
   <feature name="kat-jupnp" description=" UPnP/DLNA library for Java" version="2.1.0">
     <feature dependency="true">http</feature>
     <feature>kat-apache-httpcomponents-httpclient</feature>
     <bundle>mvn:org.jupnp/org.jupnp/2.1.0</bundle>
   </feature>
 
-  <feature name="kat-jupnp" description=" UPnP/DLNA library for Java" version="2.2.0">
-    <feature dependency="true">http</feature>
-    <feature>kat-apache-httpcomponents-httpclient</feature>
-    <bundle>mvn:org.jupnp/org.jupnp/2.2.0</bundle>
-  </feature>
+    <feature name="kat-jupnp" description=" UPnP/DLNA library for Java" version="2.2.0">
+      <feature dependency="true">http</feature>
+      <feature>kat-apache-httpcomponents-httpclient</feature>
+      <bundle>mvn:org.jupnp/org.jupnp/2.2.0</bundle>
+    </feature>
+  -->
 
 </features>

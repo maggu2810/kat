@@ -11,19 +11,6 @@
   <artifactId>checkerframework</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: Checker Framework</name>
-
-  <build>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.karaf.tooling</groupId>
-        <artifactId>karaf-maven-plugin</artifactId>
-        <configuration>
-          <startLevel>80</startLevel>
-          <aggregateFeatures>true</aggregateFeatures>
-        </configuration>
-      </plugin>
-    </plugins>
-  </build>
+  <name>KAT :: Feature :: External :: Checker Framework</name>
 
 </project>

@@ -27,8 +27,6 @@
     <module>paho</module>
     <module>swagger-jersey2</module>
     <module>xtext</module>
-
-    <module>verify</module>
   </modules>
 
 </project>

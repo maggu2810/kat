@@ -94,7 +94,7 @@
   </build>
 
   <modules>
-    <!--<module>external</module>-->
+    <module>external</module>
     <module>kat-bpg</module>
     <module>kat-kce</module>
   </modules>
