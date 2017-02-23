@@ -14,22 +14,89 @@
 
   <name>KAT :: Features</name>
 
-  <modules>
-    <module>apache-commons</module>
-    <module>apache-httpcomponents</module>
-    <module>checkerframework</module>
-    <module>equinox</module>
-    <module>gson</module>
-    <module>jackson</module>
-    <module>jersey-min</module>
-    <module>jmdns</module>
-    <module>jupnp</module>
-    <module>kat-bpg</module>
-    <module>paho</module>
-    <module>swagger-jersey2</module>
-    <module>xtext</module>
+  <dependencies>
+    <!-- Distribution -->
+    <dependency>
+      <groupId>org.apache.karaf.features</groupId>
+      <artifactId>framework</artifactId>
+      <version>${karaf.version}</version>
+      <type>kar</type>
+      <scope>provided</scope>
+    </dependency>
 
-    <module>verify</module>
+    <!-- Repositories -->
+    <dependency>
+      <groupId>org.apache.karaf.features</groupId>
+      <artifactId>standard</artifactId>
+      <version>${karaf.version}</version>
+      <classifier>features</classifier>
+      <type>xml</type>
+      <scope>provided</scope>
+    </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>org.apache.karaf.tooling</groupId>
+          <artifactId>karaf-maven-plugin</artifactId>
+          <configuration>
+            <startLevel>80</startLevel>
+            <aggregateFeatures>true</aggregateFeatures>
+          </configuration>
+          <executions>
+            <execution>
+              <id>compile</id>
+              <phase>generate-resources</phase>
+              <goals>
+                <goal>features-generate-descriptor</goal>
+              </goals>
+            </execution>
+            <execution>
+              <id>verify</id>
+              <phase>process-resources</phase>
+              <goals>
+                <goal>verify</goal>
+              </goals>
+              <configuration>
+                <descriptors>
+                  <!-- Apache Karaf -->
+                  <descriptor>mvn:org.apache.karaf.features/framework/${karaf.version}/xml/features</descriptor>
+                  <descriptor>mvn:org.apache.karaf.features/standard/${karaf.version}/xml/features</descriptor>
+
+                  <!-- Current feature under verification -->
+                  <descriptor>file:${project.build.directory}/feature/feature.xml</descriptor>
+                </descriptors>
+                <distribution>org.apache.karaf.features:framework</distribution>
+                <javase>${java.version}</javase>
+                <framework>
+                  <feature>framework</feature>
+                </framework>
+                <features>
+                  <feature>kat-*</feature>
+                </features>
+                <verifyTransitive>false</verifyTransitive>
+                <ignoreMissingConditions>true</ignoreMissingConditions>
+                <fail>first</fail>
+              </configuration>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.apache.karaf.tooling</groupId>
+        <artifactId>karaf-maven-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </build>
+
+  <modules>
+    <!--<module>external</module>-->
+    <module>kat-bpg</module>
+    <module>kat-kce</module>
   </modules>
 
 </project>

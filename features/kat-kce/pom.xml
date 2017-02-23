@@ -8,16 +8,16 @@
     <version>1.7-SNAPSHOT</version>
   </parent>
 
-  <artifactId>kat-bpg</artifactId>
+  <artifactId>kat-kce</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: Bundle POM Generator</name>
+  <name>KAT :: Feature :: Karaf Console Equinox</name>
 
   <dependencies>
     <!-- Direct bundle dependencies -->
     <dependency>
       <groupId>de.maggu2810.kat.bundles</groupId>
-      <artifactId>bundle-pom-generator</artifactId>
+      <artifactId>karaf-console-equinox</artifactId>
       <version>${project.version}</version>
       <scope>provided</scope>
     </dependency>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.maggu2810.kat.features</groupId>
+    <artifactId>pom</artifactId>
+    <version>1.7-SNAPSHOT</version>
+  </parent>
+
+  <groupId>de.maggu2810.kat.features.external</groupId>
+  <artifactId>pom</artifactId>
+  <packaging>pom</packaging>
+
+  <name>KAT :: Features :: External</name>
+
+  <modules>
+    <module>apache-commons</module>
+    <module>apache-httpcomponents</module>
+    <module>checkerframework</module>
+    <module>equinox</module>
+    <module>gson</module>
+    <module>jackson</module>
+    <module>jersey-min</module>
+    <module>jmdns</module>
+    <module>jupnp</module>
+    <module>paho</module>
+    <module>swagger-jersey2</module>
+    <module>xtext</module>
+
+    <module>verify</module>
+  </modules>
+
+</project>
