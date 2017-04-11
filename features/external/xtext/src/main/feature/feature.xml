@@ -35,9 +35,9 @@
     <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.xtext.xbase.lib/2.6.2.v201407030533</bundle>
 
     <!-- All bundles defined here are used by ALL our Xtext bundles -->
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.equinox.common/3.7.0.v20150402-1709</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.equinox.registry/3.6.0.v20150318-1503</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.equinox.supplement/1.6.0.v20141009-1504</bundle>
+    <bundle dependency="true">mvn:org.eclipse.platform/org.eclipse.equinox.common/3.8.0</bundle>
+    <bundle dependency="true">mvn:org.eclipse.platform/org.eclipse.equinox.registry/3.6.100</bundle>
+    <bundle dependency="true">mvn:org.eclipse.platform/org.eclipse.equinox.supplement/1.6.100</bundle>
     <bundle dependency="true">mvn:de.maggu2810.p2redist/com.google.guava/10.0.1.v201203051515</bundle>
     <bundle dependency="true">mvn:de.maggu2810.p2redist/com.google.inject/3.0.0.v201312141243</bundle>
     <bundle dependency="true">mvn:de.maggu2810.p2redist/org.antlr.runtime/3.2.0.v201101311130</bundle>
@@ -74,9 +74,9 @@
     <bundle dependency="true">mvn:de.maggu2810.p2redist/com.google.guava/10.0.1.v201203051515</bundle>
     <bundle dependency="true">mvn:de.maggu2810.p2redist/org.antlr.runtime/3.2.0.v201101311130</bundle>
 
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.equinox.common/3.7.0.v20150402-1709</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.equinox.registry/3.6.0.v20150318-1503</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.equinox.supplement/1.6.0.v20141009-1504</bundle>
+    <bundle dependency="true">mvn:org.eclipse.platform/org.eclipse.equinox.common/3.8.0</bundle>
+    <bundle dependency="true">mvn:org.eclipse.platform/org.eclipse.equinox.registry/3.6.100</bundle>
+    <bundle dependency="true">mvn:org.eclipse.platform/org.eclipse.equinox.supplement/1.6.100</bundle>
 
     <!-- Add ASM package -->
     <!-- org.eclipse.xtext.common.types (2.6.2.v201407030533 and 2.9.1) is using Require-Bundle -->
@@ -110,9 +110,9 @@
     <bundle dependency="true">mvn:de.maggu2810.p2redist/com.google.guava/10.0.1.v201203051515</bundle>
     <bundle dependency="true">mvn:de.maggu2810.p2redist/org.antlr.runtime/3.2.0.v201101311130</bundle>
 
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.equinox.common/3.7.0.v20150402-1709</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.equinox.registry/3.6.0.v20150318-1503</bundle>
-    <bundle dependency="true">mvn:de.maggu2810.p2redist/org.eclipse.equinox.supplement/1.6.0.v20141009-1504</bundle>
+    <bundle dependency="true">mvn:org.eclipse.platform/org.eclipse.equinox.common/3.8.0</bundle>
+    <bundle dependency="true">mvn:org.eclipse.platform/org.eclipse.equinox.registry/3.6.100</bundle>
+    <bundle dependency="true">mvn:org.eclipse.platform/org.eclipse.equinox.supplement/1.6.100</bundle>
 
     <!-- Add ASM package -->
     <!-- org.eclipse.xtext.common.types (2.6.2.v201407030533 and 2.9.2) is using Require-Bundle -->
