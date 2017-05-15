@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  KAT :: Jersey (min) Feature
+  %%
+  Copyright (C) 2016 - 2017 maggu2810
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+#L%
+-->
+
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
+
+  <repository>mvn:${project.groupId}/hk2/${project.version}/xml/features</repository>
+  <repository>mvn:${project.groupId}/jackson/${project.version}/xml/features</repository>
+  <repository>mvn:${project.groupId}/utils/${project.version}/xml/features</repository>
+
+  <feature name="kat-jersey-min" description="${project.name}" version="2.22.2">
+    <feature dependency="true">http</feature>
+
+    <bundle start-level="36">mvn:org.glassfish.jersey.containers/jersey-container-servlet/2.22.2</bundle>
+    <bundle start-level="36">mvn:org.glassfish.jersey.media/jersey-media-sse/2.22.2</bundle>
+    <bundle start-level="36">mvn:org.glassfish.jersey.media/jersey-media-multipart/2.22.2</bundle>
+
+    <bundle start-level="36" dependency="true">mvn:org.glassfish.jersey.containers/jersey-container-servlet-core/2.22.2</bundle>
+    <bundle start-level="36" dependency="true">mvn:org.glassfish.jersey.media/jersey-media-jaxb/2.22.2</bundle>
+
+    <feature dependency="true">kat-mimepull</feature>
+    <feature dependency="true">kat-jersey-server</feature>
+  </feature>
+
+  <feature name="kat-jersey-guava" version="2.22.2">
+    <bundle start-level="36">mvn:org.glassfish.jersey.bundles.repackaged/jersey-guava/2.22.2</bundle>
+  </feature>
+
+  <feature name="kat-jersey-common" version="2.22.2">
+    <bundle start-level="36">mvn:org.glassfish.jersey.core/jersey-common/2.22.2</bundle>
+
+    <feature dependency="true">kat-jersey-guava</feature>
+
+    <feature dependency="true">kat-javax.annotation-api</feature>
+    <feature dependency="true">kat-javax.inject</feature>
+    <feature dependency="true">kat-javax.ws.rs-api</feature>
+
+    <feature dependency="true">kat-hk2-api</feature>
+    <feature dependency="true">kat-hk2-osgi-resource-locator</feature>
+  </feature>
+
+  <feature name="kat-jersey-client" description="${project.name}" version="2.22.2">
+    <bundle start-level="36">mvn:org.glassfish.jersey.core/jersey-client/2.22.2</bundle>
+
+    <feature dependency="true">kat-jersey-common</feature>
+  </feature>
+
+  <feature name="kat-jersey-server" description="${project.name}" version="2.22.2">
+    <bundle start-level="36">mvn:org.glassfish.jersey.core/jersey-server/2.22.2</bundle>
+
+    <feature dependency="true">kat-javax.validation-api</feature>
+    <feature dependency="true">kat-jersey-client</feature>
+    <feature dependency="true">kat-hk2-locator</feature>
+  </feature>
+
+  <feature name="kat-jersey-entity-filtering" description="${project.name}" version="2.22.2">
+    <bundle start-level="36">mvn:org.glassfish.jersey.ext/jersey-entity-filtering/2.22.2</bundle>
+
+    <feature dependency="true">kat-jersey-server</feature>
+
+  </feature>
+
+  <feature name="kat-jersey-media-json-jackson" description="${project.name}" version="2.22.2">
+    <bundle start-level="36">mvn:org.glassfish.jersey.media/jersey-media-json-jackson/2.22.2</bundle>
+
+    <feature dependency="true">kat-jersey-common</feature>
+    <feature dependency="true">kat-jersey-entity-filtering</feature>
+
+    <feature dependency="true" version="[2,3)">kat-jackson-core</feature>
+    <feature dependency="true" version="[2,3)">kat-jackson-databind</feature>
+    <feature dependency="true" version="[2,3)">kat-jackson-jaxrs-base</feature>
+    <feature dependency="true" version="[2,3)">kat-jackson-jaxrs-json-provider</feature>
+  </feature>
+
+</features>

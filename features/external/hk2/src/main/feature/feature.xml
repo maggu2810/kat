@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  KAT :: Jersey (min) Feature
+  %%
+  Copyright (C) 2016 - 2017 maggu2810
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+#L%
+-->
+
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
+
+  <repository>mvn:${project.groupId}/utils/${project.version}/xml/features</repository>
+
+  <feature name="kat-hk2-api" version="2.4.0.b34">
+    <bundle start-level="33">mvn:org.glassfish.hk2/hk2-api/2.4.0-b34</bundle>
+
+    <feature dependency="true">kat-aopalliance</feature>
+    <feature dependency="true">kat-hk2-utils</feature>
+  </feature>
+
+  <feature name="kat-hk2-utils" version="2.4.0.b34">
+    <bundle start-level="33">mvn:org.glassfish.hk2/hk2-utils/2.4.0-b34</bundle>
+
+    <feature dependency="true">kat-javax.inject</feature>
+  </feature>
+
+  <feature name="kat-hk2-locator" version="2.4.0.b34">
+    <bundle start-level="33">mvn:org.glassfish.hk2/hk2-locator/2.4.0-b34</bundle>
+
+    <feature dependency="true">kat-hk2-api</feature>
+    <feature dependency="true">kat-javaassist</feature>
+  </feature>
+
+  <feature name="kat-hk2-osgi-resource-locator" version="1.0.1">
+    <bundle start-level="33">mvn:org.glassfish.hk2/osgi-resource-locator/1.0.1</bundle>
+  </feature>
+
+</features>

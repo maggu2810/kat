@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  #%L
+  KAT :: Jersey (min) Feature
+  %%
+  Copyright (C) 2016 - 2017 maggu2810
+  %%
+  Licensed under the Apache License, Version 2.0 (the "License");
+  you may not use this file except in compliance with the License.
+  You may obtain a copy of the License at
+
+       http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+#L%
+-->
+
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
+
+  <feature name="kat-mimepull" version="1.9.6">
+    <bundle>mvn:org.jvnet.mimepull/mimepull/1.9.6</bundle>
+  </feature>
+
+  <feature name="kat-aopalliance" version="2.4.0.b34">
+    <bundle start-level="33">mvn:org.glassfish.hk2.external/aopalliance-repackaged/2.4.0-b34</bundle>
+  </feature>
+
+  <feature name="kat-javaassist" version="3.18.1.GA">
+    <bundle>mvn:org.javassist/javassist/3.18.1-GA</bundle>
+  </feature>
+
+
+  <feature name="kat-javax.annotation-api" version="1.2">
+    <bundle>mvn:javax.annotation/javax.annotation-api/1.2</bundle>
+  </feature>
+
+  <feature name="kat-javax.inject" version="2.4.0.b34">
+    <bundle start-level="33">mvn:org.glassfish.hk2.external/javax.inject/2.4.0-b34</bundle>
+  </feature>
+
+  <feature name="kat-javax.validation-api" version="1.1.0.Final">
+    <bundle>mvn:javax.validation/validation-api/1.1.0.Final</bundle>
+  </feature>
+
+  <feature name="kat-javax.ws.rs-api" version="2.0.1">
+    <bundle>mvn:javax.ws.rs/javax.ws.rs-api/2.0.1</bundle>
+  </feature>
+
+</features>

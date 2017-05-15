@@ -8,23 +8,9 @@
     <version>1.8-SNAPSHOT</version>
   </parent>
 
-  <artifactId>jackson</artifactId>
+  <artifactId>utils</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: Jackson</name>
-
-  <dependencies>
-    <!-- Repositories -->
-    <dependency>
-      <groupId>${project.groupId}</groupId>
-      <artifactId>utils</artifactId>
-      <version>${project.version}</version>
-      <type>xml</type>
-      <classifier>features</classifier>
-      <scope>provided</scope>
-    </dependency>
-
-    <!-- Direct bundle dependencies -->
-  </dependencies>
+  <name>KAT :: Feature :: External :: Utils</name>
 
 </project>

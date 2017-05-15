@@ -8,13 +8,29 @@
     <version>1.8-SNAPSHOT</version>
   </parent>
 
-  <artifactId>jackson</artifactId>
+  <artifactId>jersey</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: Jackson</name>
+  <name>KAT :: Feature :: External :: Jersey</name>
 
   <dependencies>
     <!-- Repositories -->
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>hk2</artifactId>
+      <version>${project.version}</version>
+      <type>xml</type>
+      <classifier>features</classifier>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>jackson</artifactId>
+      <version>${project.version}</version>
+      <type>xml</type>
+      <classifier>features</classifier>
+      <scope>provided</scope>
+    </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>utils</artifactId>

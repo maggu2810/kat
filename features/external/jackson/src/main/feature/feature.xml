@@ -11,15 +11,17 @@
 
        http://www.apache.org/licenses/LICENSE-2.0
 
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-  #L%
-  -->
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+#L%
+-->
 
 <features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
+
+  <repository>mvn:${project.groupId}/utils/${project.version}/xml/features</repository>
 
   <feature name="kat-jackson-core" description="FasterXML Jackson Core" version="1.9.13">
     <details>Core part of Jackson that defines Streaming API as well as basic shared abstractions.</details>
@@ -31,6 +33,34 @@
     <bundle>mvn:org.codehaus.jackson/jackson-mapper-asl/1.9.13</bundle>
 
     <feature version="[1.9.13,1.9.13]" dependency="true">kat-jackson-core</feature>
+  </feature>
+
+  <feature name="kat-jackson-annotations" version="2.5.4">
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.5.4</bundle>
+  </feature>
+
+  <feature name="kat-jackson-core" version="2.5.4">
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.5.4</bundle>
+  </feature>
+
+  <feature name="kat-jackson-databind" version="2.5.4">
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.5.4</bundle>
+
+    <feature dependency="true" version="2.5.4">kat-jackson-annotations</feature>
+    <feature dependency="true" version="2.5.4">kat-jackson-core</feature>
+  </feature>
+
+  <feature name="kat-jackson-jaxrs-base" version="2.5.4">
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.5.4</bundle>
+
+    <feature dependency="true" version="2.5.4">kat-jackson-databind</feature>
+    <feature dependency="true">kat-javax.ws.rs-api</feature>
+  </feature>
+
+  <feature name="kat-jackson-jaxrs-json-provider" version="2.5.4">
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.5.4</bundle>
+
+    <feature dependency="true" version="2.5.4">kat-jackson-jaxrs-base</feature>
   </feature>
 
 </features>

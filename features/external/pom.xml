@@ -20,12 +20,14 @@
     <module>checkerframework</module>
     <module>equinox</module>
     <module>gson</module>
+    <module>hk2</module>
     <module>jackson</module>
-    <module>jersey-min</module>
+    <module>jersey</module>
     <module>jmdns</module>
     <module>jupnp</module>
     <module>paho</module>
     <module>swagger-jersey2</module>
+    <module>utils</module>
     <module>xtext</module>
   </modules>
 

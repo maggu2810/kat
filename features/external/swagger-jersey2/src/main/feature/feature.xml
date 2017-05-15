@@ -11,17 +11,17 @@
 
        http://www.apache.org/licenses/LICENSE-2.0
 
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
-  #L%
-  -->
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+#L%
+-->
 
 <features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
 
-  <repository>mvn:${project.groupId}/jersey-min/${project.version}/xml/features</repository>
+  <repository>mvn:${project.groupId}/jersey/${project.version}/xml/features</repository>
 
   <feature name="kat-${project.artifactId}" description="${project.name}" version="1.5.8">
     <!--<feature prerequisite="true" dependency="false">wrap</feature>-->

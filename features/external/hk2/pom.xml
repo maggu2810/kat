@@ -8,10 +8,10 @@
     <version>1.8-SNAPSHOT</version>
   </parent>
 
-  <artifactId>jackson</artifactId>
+  <artifactId>hk2</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: Jackson</name>
+  <name>KAT :: Feature :: External :: HK2</name>
 
   <dependencies>
     <!-- Repositories -->
