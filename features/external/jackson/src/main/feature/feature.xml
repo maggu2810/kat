@@ -61,6 +61,13 @@ limitations under the License.
     <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.5.4</bundle>
 
     <feature dependency="true" version="2.5.4">kat-jackson-jaxrs-base</feature>
+    <feature version="2.5.4">kat-jackson-module-jaxb-annotations</feature>
+  </feature>
+
+  <feature name="kat-jackson-module-jaxb-annotations" version="2.5.4">
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.5.4</bundle>
+
+    <feature dependency="true" version="2.5.4">kat-jackson-databind</feature>
   </feature>
 
 </features>
