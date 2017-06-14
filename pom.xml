@@ -28,6 +28,9 @@
 
     <maven.build.resources.version>1.7</maven.build.resources.version>
     <quality.skip>false</quality.skip>
+    <checkerframework.version>2.1.10</checkerframework.version>
+    <checkerframework.compiler.arg1>-AplaceholderToBeReplaced</checkerframework.compiler.arg1>
+    <checkerframework.qual.groupId>de.maggu2810.osgi-ify.org.checkerframework.checker-qual</checkerframework.qual.groupId>
 
     <license.skipUpdateLicense>false</license.skipUpdateLicense>
     <license.shortcut>apache_v2</license.shortcut>
