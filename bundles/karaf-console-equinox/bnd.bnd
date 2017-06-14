@@ -1,0 +1,3 @@
+Import-Package: \
+	org.checkerframework.checker.nullness.qual;resolution:=optional,\
+	*

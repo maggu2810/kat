@@ -1,1 +1,4 @@
 Karaf-Commands: de.maggu2810.kat.bpg*
+Import-Package: \
+	org.checkerframework.checker.nullness.qual;resolution:=optional,\
+	*
