@@ -24,7 +24,7 @@
     <maven.compiler.compilerVersion>${java.version}</maven.compiler.compilerVersion>
 
     <bnd.version>3.3.0</bnd.version>
-    <karaf.version>4.0.8</karaf.version>
+    <karaf.version>4.1.1</karaf.version>
 
     <maven.build.resources.version>1.7</maven.build.resources.version>
     <quality.skip>false</quality.skip>
@@ -174,35 +174,6 @@
         </plugin>
 
         <plugin>
-          <groupId>net.revelc.code</groupId>
-          <artifactId>formatter-maven-plugin</artifactId>
-          <version>0.5.2</version>
-          <executions>
-            <execution>
-              <phase>process-sources</phase>
-              <goals>
-                <goal>format</goal>
-              </goals>
-            </execution>
-          </executions>
-          <configuration>
-            <directories>
-              <directory>${project.build.sourceDirectory}</directory>
-              <directory>${project.build.directory}/generated-sources</directory>
-            </directories>
-            <lineEnding>LF</lineEnding>
-            <configFile>eclipse/code-formatter.xml</configFile>
-          </configuration>
-          <dependencies>
-            <dependency>
-              <groupId>de.maggu2810.maven.build</groupId>
-              <artifactId>resources</artifactId>
-              <version>${maven.build.resources.version}</version>
-            </dependency>
-          </dependencies>
-        </plugin>
-
-        <plugin>
           <groupId>org.apache.karaf.tooling</groupId>
           <artifactId>karaf-maven-plugin</artifactId>
           <version>${karaf.version}</version>
@@ -212,16 +183,13 @@
         <plugin>
           <groupId>org.codehaus.mojo</groupId>
           <artifactId>license-maven-plugin</artifactId>
-          <version>1.10</version>
+          <version>1.12</version>
           <configuration>
             <licenseName>${license.shortcut}</licenseName>
             <!--<licenseResolver>classpath://licenses</licenseResolver> -->
             <addJavaLicenseAfterPackage>false</addJavaLicenseAfterPackage>
             <emptyLineAfterHeader>true</emptyLineAfterHeader>
             <ignoreNoFileToScan>true</ignoreNoFileToScan>
-            <canUpdateCopyright>true</canUpdateCopyright>
-            <canUpdateDescription>true</canUpdateDescription>
-            <canUpdateLicense>true</canUpdateLicense>
           </configuration>
           <executions>
             <execution>
@@ -236,6 +204,9 @@
                 <excludes>
                   <exclude>**/feature.xml</exclude>
                 </excludes>
+                <canUpdateCopyright>true</canUpdateCopyright>
+                <canUpdateDescription>true</canUpdateDescription>
+                <canUpdateLicense>true</canUpdateLicense>
               </configuration>
             </execution>
           </executions>
@@ -262,7 +233,7 @@
             <dependency>
               <groupId>com.puppycrawl.tools</groupId>
               <artifactId>checkstyle</artifactId>
-              <version>7.1</version>
+              <version>7.8.1</version>
             </dependency>
             <dependency>
               <groupId>de.maggu2810.maven.build</groupId>
@@ -297,11 +268,6 @@
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-jar-plugin</artifactId>
           <version>3.0.0</version>
-          <configuration>
-            <archive>
-              <manifestFile>${project.build.outputDirectory}/META-INF/MANIFEST.MF</manifestFile>
-            </archive>
-          </configuration>
         </plugin>
 
         <plugin>
@@ -349,7 +315,7 @@
         <plugin>
           <groupId>org.apache.maven.plugins</groupId>
           <artifactId>maven-shade-plugin</artifactId>
-          <version>2.4.2</version>
+          <version>2.4.3</version>
         </plugin>
 
         <plugin>
@@ -375,20 +341,172 @@
 
   <profiles>
     <profile>
-      <id>formatter</id>
+      <id>checkerframework-check</id>
+      <activation>
+        <property>
+          <name>check</name>
+        </property>
+      </activation>
+
+      <properties>
+        <fixloc.dir>${java.io.tmpdir}/maven.build/fixloc</fixloc.dir>
+        <fixloc.checkerframework.jdk8.jar>org.checkerframework.jdk8-${checkerframework.version}.jar</fixloc.checkerframework.jdk8.jar>
+        <fixloc.checkerframework.compiler.jar>org.checkerframework.compiler-${checkerframework.version}.jar</fixloc.checkerframework.compiler.jar>
+      </properties>
+
+      <dependencyManagement>
+        <dependencies>
+          <!-- Checker Framework -->
+          <dependency>
+            <groupId>org.checkerframework</groupId>
+            <artifactId>checker</artifactId>
+            <version>${checkerframework.version}</version>
+          </dependency>
+        </dependencies>
+      </dependencyManagement>
+
+      <dependencies>
+        <!-- Checker Framework -->
+        <dependency>
+          <groupId>org.checkerframework</groupId>
+          <artifactId>checker</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <!-- Without a dependency to the core framework the checker fails for every bundle not depend on it... -->
+        <!-- org.osgi.framework.Bundle -->
+        <dependency>
+          <groupId>org.osgi</groupId>
+          <artifactId>osgi.core</artifactId>
+        </dependency>
+      </dependencies>
+
       <build>
-        <defaultGoal>clean install</defaultGoal>
         <plugins>
           <plugin>
-            <groupId>net.revelc.code</groupId>
-            <artifactId>formatter-maven-plugin</artifactId>
+            <!-- This plugin will set the properties values using dependency information -->
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-dependency-plugin</artifactId>
+            <executions>
+              <execution>
+                <goals>
+                  <goal>properties</goal>
+                </goals>
+              </execution>
+              <execution>
+                <id>copy-checkerframework-stuff</id>
+                <phase>validate</phase>
+                <goals>
+                  <goal>copy</goal>
+                </goals>
+                <configuration>
+                  <artifactItems>
+                    <artifactItem>
+                      <!-- The annotated JDK to use -->
+                      <groupId>org.checkerframework</groupId>
+                      <artifactId>jdk8</artifactId>
+                      <version>${checkerframework.version}</version>
+                      <type>jar</type>
+                      <destFileName>${fixloc.checkerframework.jdk8.jar}</destFileName>
+                    </artifactItem>
+                    <artifactItem>
+                      <!-- The type annotations compiler - uncomment if desired -->
+                      <groupId>org.checkerframework</groupId>
+                      <artifactId>compiler</artifactId>
+                      <version>${checkerframework.version}</version>
+                      <type>jar</type>
+                      <destFileName>${fixloc.checkerframework.compiler.jar}</destFileName>
+                    </artifactItem>
+                  </artifactItems>
+                  <outputDirectory>${fixloc.dir}</outputDirectory>
+                  <overWriteReleases>false</overWriteReleases>
+                  <overWriteSnapshots>true</overWriteSnapshots>
+                </configuration>
+              </execution>
+            </executions>
           </plugin>
+
+          <plugin>
+            <groupId>org.commonjava.maven.plugins</groupId>
+            <artifactId>directory-maven-plugin</artifactId>
+            <version>0.1</version>
+            <executions>
+              <execution>
+                <id>directories</id>
+                <goals>
+                  <goal>highest-basedir</goal>
+                </goals>
+                <phase>initialize</phase>
+                <configuration>
+                  <property>basedirRoot</property>
+                </configuration>
+              </execution>
+            </executions>
+          </plugin>
+
+          <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-compiler-plugin</artifactId>
+            <configuration>
+              <fork>true</fork>
+              <annotationProcessors>
+                <!-- Add all the checkers you want to enable here -->
+                <annotationProcessor>org.checkerframework.checker.nullness.NullnessChecker</annotationProcessor>
+              </annotationProcessors>
+              <compilerArgs>
+                <!-- directory containing annotated library stubs -->
+                <arg>-Astubs=${basedirRoot}/tools/checkerframework/stubs</arg>
+                <arg>-AstubWarnIfNotFound</arg>
+                <arg>-AstubWarnIfOverwritesBytecode</arg>
+                <arg>-AstubDebug</arg>
+
+                <!-- -Awarns Treat checker errors as warnings. -->
+                <!-- If you use this, you may wish to also supply -Xmaxwarns 10000, because by default javac prints at most 100 warnings. -->
+                <!-- <arg>-Awarns</arg> -->
+                <!-- <arg>-Xmaxwarns</arg> -->
+                <!-- <arg>10000</arg> -->
+                <arg>${checkerframework.compiler.arg1}</arg>
+
+                <!-- -AshowSuppressWarningKeys With each warning, show all possible keys to suppress that warning. -->
+                <arg>-AshowSuppressWarningKeys</arg>
+
+                <!-- location of the annotated JDK, which comes from a Maven dependency -->
+                <arg>-Xbootclasspath/p:${fixloc.dir}/${fixloc.checkerframework.jdk8.jar}</arg>
+                <!-- Uncomment the following line to use the type annotations compiler. -->
+                <!-- <arg>-J-Xbootclasspath/p:${fixloc.dir}/${fixloc.checkerframework.compiler.jar}</arg> -->
+              </compilerArgs>
+            </configuration>
+          </plugin>
+
+          <!-- <plugin> -->
+          <!-- <groupId>org.apache.maven.plugins</groupId> -->
+          <!-- <artifactId>maven-antrun-plugin</artifactId> -->
+          <!-- <executions> -->
+          <!-- <execution> -->
+          <!-- <phase>validate</phase> -->
+          <!-- <goals> -->
+          <!-- <goal>run</goal> -->
+          <!-- </goals> -->
+          <!-- <configuration> -->
+          <!-- <tasks> -->
+          <!-- <echo>[fixloc.dir] ${fixloc.dir}</echo> -->
+          <!-- <echo>[fixloc.checkerframework.jdk8.jar] ${fixloc.checkerframework.jdk8.jar}</echo> -->
+          <!-- </tasks> -->
+          <!-- </configuration> -->
+          <!-- </execution> -->
+          <!-- </executions> -->
+          <!-- </plugin> -->
         </plugins>
       </build>
     </profile>
 
     <profile>
-      <id>buildsystem</id>
+      <id>check-buildsystem</id>
+      <activation>
+        <property>
+          <name>check</name>
+          <value>buildsystem</value>
+        </property>
+      </activation>
       <properties>
         <license.skipUpdateLicense>true</license.skipUpdateLicense>
       </properties>
@@ -398,9 +516,27 @@
     </profile>
 
     <profile>
-      <id>preCommit</id>
+      <id>check-commit-goals</id>
+      <activation>
+        <property>
+          <name>check</name>
+          <value>commit</value>
+        </property>
+      </activation>
       <build>
         <defaultGoal>clean install findbugs:check pmd:check checkstyle:check javadoc:javadoc</defaultGoal>
+      </build>
+    </profile>
+
+    <profile>
+      <id>check-commit-style</id>
+      <activation>
+        <property>
+          <name>check</name>
+          <value>commit</value>
+        </property>
+      </activation>
+      <build>
         <plugins>
           <plugin>
             <groupId>org.codehaus.mojo</groupId>
