@@ -36,11 +36,7 @@ public class CommandWrapperGetHelp extends CommandWrapper {
 
     @Override
     protected void execute(final CommandInterpreter interpreter) {
-        try {
-            interpreter.println(commandProvider.getHelp());
-        } catch (final Exception ex) {
-            interpreter.printStackTrace(ex);
-        }
+        interpreter.println(commandProvider.getHelp());
     }
 
     @Override

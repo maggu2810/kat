@@ -40,13 +40,9 @@ import org.osgi.service.component.annotations.Component;
 import org.osgi.service.component.annotations.Reference;
 import org.osgi.service.component.annotations.ReferenceCardinality;
 import org.osgi.service.component.annotations.ReferencePolicy;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 @Component(immediate = true)
 public class ConsoleSupportKaraf {
-
-    private final Logger logger = LoggerFactory.getLogger(ConsoleSupportKaraf.class);
 
     // This map contains all known session factories.
     private final Set<SessionFactory> sessionFactories = new HashSet<>();
@@ -122,7 +118,8 @@ public class ConsoleSupportKaraf {
         return wrappers;
     }
 
-    private void register(final Collection<SessionFactory> sessionFactories, final Collection<CommandWrapper> wrappers) {
+    private void register(final Collection<SessionFactory> sessionFactories,
+            final Collection<CommandWrapper> wrappers) {
         for (final SessionFactory sessionFactory : sessionFactories) {
             register(sessionFactory.getRegistry(), wrappers);
         }
@@ -145,14 +142,11 @@ public class ConsoleSupportKaraf {
     }
 
     private void register(final Registry registry, final CommandWrapper wrapper) {
-        try {
-            registry.register(wrapper);
-        } catch (final Exception ex) {
-            logger.error("Cannot register command '{}'.", wrapper, ex);
-        }
+        registry.register(wrapper);
     }
 
-    private void unregister(final Collection<SessionFactory> sessionFactories, final Collection<CommandWrapper> wrappers) {
+    private void unregister(final Collection<SessionFactory> sessionFactories,
+            final Collection<CommandWrapper> wrappers) {
         for (final SessionFactory sessionFactory : sessionFactories) {
             unregister(sessionFactory.getRegistry(), wrappers);
         }
@@ -175,11 +169,7 @@ public class ConsoleSupportKaraf {
     }
 
     private void unregister(final Registry registry, final CommandWrapper wrapper) {
-        try {
-            registry.unregister(wrapper);
-        } catch (final Exception ex) {
-            logger.error("Cannot unregister command '{}'.", wrapper, ex);
-        }
+        registry.unregister(wrapper);
     }
 
 }

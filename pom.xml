@@ -75,6 +75,15 @@
 
   <dependencyManagement>
     <dependencies>
+      <!-- Checker Framework -->
+      <dependency>
+        <!-- annotations from the Checker Framework: nullness, interning, locking, ... -->
+        <groupId>${checkerframework.qual.groupId}</groupId>
+        <artifactId>checker-qual</artifactId>
+        <version>${checkerframework.version}</version>
+      </dependency>
+
+      <!-- Karaf -->
       <dependency>
         <groupId>org.apache.karaf.shell</groupId>
         <artifactId>org.apache.karaf.shell.core</artifactId>
@@ -85,8 +94,10 @@
         <artifactId>org.apache.karaf.bundle.core</artifactId>
         <version>${karaf.version}</version>
       </dependency>
+
+      <!-- TODO -->
       <dependency>
-        <!--Apache License, Version 2.0-->
+        <!--Apache License, Version 2.0 -->
         <groupId>org.apache.maven</groupId>
         <artifactId>maven-model</artifactId>
         <version>3.3.9</version>
@@ -102,25 +113,25 @@
         <version>3.9.1.v20130814-1242</version>
       </dependency>
       <dependency>
-        <!--Apache License, Version 2.0-->
+        <!--Apache License, Version 2.0 -->
         <groupId>org.osgi</groupId>
         <artifactId>osgi.core</artifactId>
         <version>6.0.0</version>
       </dependency>
       <dependency>
-        <!--Apache License, Version 2.0-->
+        <!--Apache License, Version 2.0 -->
         <groupId>org.osgi</groupId>
         <artifactId>osgi.cmpn</artifactId>
         <version>6.0.0</version>
       </dependency>
       <dependency>
-        <!--MIT License-->
+        <!--MIT License -->
         <groupId>org.slf4j</groupId>
         <artifactId>slf4j-api</artifactId>
         <version>1.7.7</version>
       </dependency>
       <dependency>
-        <!--Eclipse Public License 1.0-->
+        <!--Eclipse Public License 1.0 -->
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>4.12</version>
@@ -596,36 +607,9 @@
   </pluginRepositories>
 
   <repositories>
-    <!--    <repository>
-      <id>jCenter</id>
-      <url>https://jcenter.bintray.com/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>ojo-libs-release</id>
-      <url>http://oss.jfrog.org/artifactory/simple/libs-release/</url>
-      <releases>
-        <enabled>true</enabled>
-      </releases>
-      <snapshots>
-        <enabled>false</enabled>
-      </snapshots>
-    </repository>
-    <repository>
-      <id>ojo-libs-snapshot</id>
-      <url>http://oss.jfrog.org/artifactory/simple/libs-snapshot/</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>-->
+    <!-- <repository> <id>jCenter</id> <url>https://jcenter.bintray.com/</url> <releases> <enabled>true</enabled> </releases> <snapshots> <enabled>false</enabled> </snapshots> </repository> <repository> <id>ojo-libs-release</id> <url>http://oss.jfrog.org/artifactory/simple/libs-release/</url> 
+      <releases> <enabled>true</enabled> </releases> <snapshots> <enabled>false</enabled> </snapshots> </repository> <repository> <id>ojo-libs-snapshot</id> <url>http://oss.jfrog.org/artifactory/simple/libs-snapshot/</url> <releases> <enabled>false</enabled> 
+      </releases> <snapshots> <enabled>true</enabled> </snapshots> </repository> -->
     <repository>
       <id>bintray-maggu2810-maven</id>
       <url>http://dl.bintray.com/maggu2810/maven/</url>
@@ -636,16 +620,7 @@
         <enabled>false</enabled>
       </snapshots>
     </repository>
-    <!--    <repository>
-      <id>github-maggu2810-mvn-repo</id>
-      <url>https://github.com/maggu2810/mvn-repo/raw/master</url>
-      <releases>
-        <enabled>false</enabled>
-      </releases>
-      <snapshots>
-        <enabled>true</enabled>
-      </snapshots>
-    </repository>-->
+    <!-- <repository> <id>github-maggu2810-mvn-repo</id> <url>https://github.com/maggu2810/mvn-repo/raw/master</url> <releases> <enabled>false</enabled> </releases> <snapshots> <enabled>true</enabled> </snapshots> </repository> -->
   </repositories>
 
   <modules>

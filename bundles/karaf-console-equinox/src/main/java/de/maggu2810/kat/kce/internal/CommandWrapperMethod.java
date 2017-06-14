@@ -20,7 +20,9 @@
 
 package de.maggu2810.kat.kce.internal;
 
+import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+
 import org.eclipse.osgi.framework.console.CommandInterpreter;
 import org.eclipse.osgi.framework.console.CommandProvider;
 
@@ -43,7 +45,7 @@ public class CommandWrapperMethod extends CommandWrapper {
     protected void execute(final CommandInterpreter interpreter) {
         try {
             method.invoke(commandProvider, interpreter);
-        } catch (final Exception ex) {
+        } catch (final IllegalAccessException | IllegalArgumentException | InvocationTargetException ex) {
             interpreter.printStackTrace(ex);
         }
     }

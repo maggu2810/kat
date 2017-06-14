@@ -1,0 +1,9 @@
+import org.checkerframework.checker.nullness.qual.NonNull;
+import org.checkerframework.checker.nullness.qual.Nullable;
+
+package org.apache.karaf.shell.api.console;
+
+interface Command extends Function {
+    @Nullable Completer getCompleter(boolean scoped);
+    @Nullable Parser getParser();
+}
