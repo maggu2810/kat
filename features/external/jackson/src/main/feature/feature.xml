@@ -70,4 +70,46 @@ limitations under the License.
     <feature dependency="true" version="2.5.4">kat-jackson-databind</feature>
   </feature>
 
+  <feature name="kat-jackson-annotations" version="2.8.9">
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-annotations/2.8.9</bundle>
+  </feature>
+
+  <feature name="kat-jackson-core" version="2.8.9">
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-core/2.8.9</bundle>
+  </feature>
+
+  <feature name="kat-jackson-databind" version="2.8.9">
+    <bundle>mvn:com.fasterxml.jackson.core/jackson-databind/2.8.9</bundle>
+
+    <feature dependency="true" version="2.8.9">kat-jackson-annotations</feature>
+    <feature dependency="true" version="2.8.9">kat-jackson-core</feature>
+  </feature>
+
+  <feature name="kat-jackson-dataformat-yaml" version="2.8.9">
+    <bundle>mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/2.8.9</bundle>
+
+    <feature dependency="true" version="2.8.9">kat-jackson-databind</feature>
+    <bundle dependency="true">mvn:org.yaml/snakeyaml/1.18</bundle>
+  </feature>
+
+  <feature name="kat-jackson-jaxrs-base" version="2.8.9">
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.8.9</bundle>
+
+    <feature dependency="true" version="2.8.9">kat-jackson-databind</feature>
+    <feature dependency="true">kat-javax.ws.rs-api</feature>
+  </feature>
+
+  <feature name="kat-jackson-jaxrs-json-provider" version="2.8.9">
+    <bundle>mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.8.9</bundle>
+
+    <feature dependency="true" version="2.8.9">kat-jackson-jaxrs-base</feature>
+    <feature version="2.8.9">kat-jackson-module-jaxb-annotations</feature>
+  </feature>
+
+  <feature name="kat-jackson-module-jaxb-annotations" version="2.8.9">
+    <bundle>mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.8.9</bundle>
+
+    <feature dependency="true" version="2.8.9">kat-jackson-databind</feature>
+  </feature>
+
 </features>
