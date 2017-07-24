@@ -26,6 +26,7 @@
     <module>jmdns</module>
     <module>jupnp</module>
     <module>paho</module>
+    <module>swagger</module>
     <module>swagger-jersey2</module>
     <module>utils</module>
     <module>xtext</module>

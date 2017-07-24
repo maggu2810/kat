@@ -91,4 +91,11 @@ limitations under the License.
     <feature dependency="true" version="[2,3)">kat-jackson-jaxrs-json-provider</feature>
   </feature>
 
+  <feature name="kat-jersey-media-multipart" description="${project.name}" version="2.22.2">
+    <bundle start-level="36">mvn:org.glassfish.jersey.media/jersey-media-multipart/2.22.2</bundle>
+
+    <feature dependency="true">kat-jersey-common</feature>
+    <feature dependency="true">kat-mimepull</feature>
+  </feature>
+
 </features>

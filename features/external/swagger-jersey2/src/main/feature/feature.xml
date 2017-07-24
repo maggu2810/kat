@@ -22,40 +22,18 @@ limitations under the License.
 <features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
 
   <repository>mvn:${project.groupId}/jersey/${project.version}/xml/features</repository>
+  <repository>mvn:${project.groupId}/swagger/${project.version}/xml/features</repository>
 
   <feature name="kat-${project.artifactId}" description="${project.name}" version="1.5.8">
     <!--<feature prerequisite="true" dependency="false">wrap</feature>-->
-
     <!--<bundle>wrap:mvn:io.swagger/swagger-jersey2-jaxrs/${swagger.version}$Import-Package=*</bundle>-->
     <bundle>mvn:de.maggu2810.thirdparty.modified.io.swagger/swagger-jersey2-jaxrs/1.5.8.v20160511-1038</bundle>
 
-    <feature dependency="true">kat-jersey-min</feature>
-
-    <bundle dependency="true">mvn:io.swagger/swagger-annotations/1.5.8</bundle>
-    <bundle dependency="true">mvn:io.swagger/swagger-core/1.5.8</bundle>
-    <bundle dependency="true">mvn:io.swagger/swagger-jaxrs/1.5.8</bundle>
-    <bundle dependency="true">mvn:io.swagger/swagger-models/1.5.8</bundle>
+    <feature dependency="true" version="[2,3)">kat-jackson-databind</feature>
+    <feature dependency="true">kat-jersey-media-multipart</feature>
+    <feature dependency="true">kat-swagger-jaxrs</feature>
 
     <!--<bundle dependency="true">wrap:mvn:org.reflections/reflections/0.9.10</bundle>-->
     <bundle dependency="true">mvn:de.maggu2810.thirdparty.modified.org.reflections/reflections/0.9.10.v20160429-1435</bundle>
-
-    <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-annotations/2.4.5</bundle>
-    <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-core/2.4.5</bundle>
-    <bundle dependency="true">mvn:com.fasterxml.jackson.core/jackson-databind/2.4.5</bundle>
-    <bundle dependency="true">mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-xml/2.4.5</bundle>
-    <bundle dependency="true">mvn:com.fasterxml.jackson.dataformat/jackson-dataformat-yaml/2.4.5</bundle>
-    <bundle dependency="true">mvn:com.fasterxml.jackson.datatype/jackson-datatype-joda/2.4.5</bundle>
-    <bundle dependency="true">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-base/2.4.5</bundle>
-    <bundle dependency="true">mvn:com.fasterxml.jackson.jaxrs/jackson-jaxrs-json-provider/2.4.5</bundle>
-    <bundle dependency="true">mvn:com.fasterxml.jackson.module/jackson-module-jaxb-annotations/2.4.5</bundle>
-    <bundle dependency="true">mvn:com.google.code.findbugs/annotations/2.0.1</bundle>
-    <bundle dependency="true">mvn:com.google.guava/guava/18.0</bundle>
-    <bundle dependency="true">mvn:javax.validation/validation-api/1.1.0.Final</bundle>
-    <bundle dependency="true">mvn:joda-time/joda-time/2.2</bundle>
-    <bundle dependency="true">mvn:org.apache.commons/commons-lang3/3.2.1</bundle>
-    <bundle dependency="true">mvn:org.codehaus.woodstox/stax2-api/3.1.4</bundle>
-    <bundle dependency="true">mvn:org.javassist/javassist/3.19.0-GA</bundle>
-    <bundle dependency="true">mvn:org.slf4j/slf4j-api/1.7.7</bundle>
-    <bundle dependency="true">mvn:org.yaml/snakeyaml/1.12</bundle>
   </feature>
 </features>

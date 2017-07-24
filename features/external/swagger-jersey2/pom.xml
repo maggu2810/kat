@@ -23,6 +23,14 @@
       <classifier>features</classifier>
       <scope>provided</scope>
     </dependency>
+    <dependency>
+      <groupId>${project.groupId}</groupId>
+      <artifactId>swagger</artifactId>
+      <version>${project.version}</version>
+      <type>xml</type>
+      <classifier>features</classifier>
+      <scope>provided</scope>
+    </dependency>
 
     <!-- Direct bundle dependencies -->
   </dependencies>
