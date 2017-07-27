@@ -23,6 +23,7 @@
     <module>hk2</module>
     <module>jackson</module>
     <module>jersey</module>
+    <module>jjwt</module>
     <module>jmdns</module>
     <module>jupnp</module>
     <module>paho</module>
