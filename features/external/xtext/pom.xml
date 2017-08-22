@@ -13,4 +13,60 @@
 
   <name>KAT :: Feature :: External :: Xtext</name>
 
+  <dependencies>
+    <!-- Repositories (external) -->
+
+    <!-- Repositories (reactor) -->
+
+    <!-- Bundle dependencies (external) -->
+    <dependency>
+      <groupId>de.maggu2810.p2redist</groupId>
+      <artifactId>com.google.inject</artifactId>
+      <version>3.0.0.v201312141243</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.google.inject</groupId>
+      <artifactId>guice</artifactId>
+      <version>3.0</version>
+      <scope>compile</scope>
+      <exclusions>
+        <exclusion>
+          <artifactId>org.osgi.foundation</artifactId>
+          <groupId>org.apache.felix</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>cglib</artifactId>
+          <groupId>*</groupId>
+        </exclusion>
+        <exclusion>
+          <artifactId>stringtemplate</artifactId>
+          <groupId>org.antlr</groupId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
+    <dependency>
+      <groupId>org.apache.servicemix.bundles</groupId>
+      <artifactId>org.apache.servicemix.bundles.antlr-runtime</artifactId>
+      <version>3.2_2</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <dependency>
+      <groupId>de.maggu2810.requirebundle.fix</groupId>
+      <artifactId>org.objectweb.asm</artifactId>
+      <version>5.0.2</version>
+      <scope>provided</scope>
+    </dependency>
+    <dependency>
+      <groupId>org.eclipse.xtext</groupId>
+      <artifactId>org.eclipse.xtext.common.types</artifactId>
+      <version>2.12.0</version>
+      <scope>provided</scope>
+    </dependency>
+
+    <!-- Bundle dependencies (reactor) -->
+  </dependencies>
+
 </project>
