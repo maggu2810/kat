@@ -23,6 +23,7 @@
     <module>hk2</module>
     <module>jackson</module>
     <module>jersey</module>
+    <module>jetty</module>
     <module>jjwt</module>
     <module>jmdns</module>
     <module>jupnp</module>
