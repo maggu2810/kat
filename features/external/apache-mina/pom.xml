@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.maggu2810.kat.features.external</groupId>
+    <artifactId>pom</artifactId>
+    <version>1.9.1-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>apache-mina</artifactId>
+  <packaging>feature</packaging>
+
+  <name>KAT :: Feature :: External :: Apache MINA</name>
+
+  <dependencies>
+    <!-- Repositories -->
+    <!-- Repositories (reactor) -->
+    <!-- Bundle (reactor) dependencies -->
+    <!-- Bundle dependencies -->
+    <dependency>
+      <groupId>org.apache.mina</groupId>
+      <artifactId>mina-core</artifactId>
+      <version>2.0.16</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.ftpserver</groupId>
+      <artifactId>ftpserver-core</artifactId>
+      <version>1.1.1</version>
+    </dependency>
+    <dependency>
+      <groupId>org.apache.sshd</groupId>
+      <artifactId>sshd-core</artifactId>
+      <version>1.7.0</version>
+    </dependency>
+  </dependencies>
+
+</project>
