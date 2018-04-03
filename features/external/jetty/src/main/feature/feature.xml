@@ -48,14 +48,14 @@ limitations under the License.
     <feature dependency="true">kat-jetty-dependencies</feature>
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-io/9.3.14.v20161028</bundle>
-    <feature version="9.3.14.v20161028">kat-jetty-util</feature>
+    <feature version="[9.3.14.v20161028,9.3.14.v20161028]">kat-jetty-util</feature>
   </feature>
 
   <feature name="kat-jetty-http" version="9.3.14.v20161028" hidden="true">
     <feature dependency="true">kat-jetty-dependencies</feature>
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-http/9.3.14.v20161028</bundle>
-    <feature version="9.3.14.v20161028">kat-jetty-util</feature>
+    <feature version="[9.3.14.v20161028,9.3.14.v20161028]">kat-jetty-util</feature>
   </feature>
 
   <feature name="kat-jetty-server" version="9.3.14.v20161028">
@@ -63,8 +63,8 @@ limitations under the License.
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-server/9.3.14.v20161028</bundle>
 
-    <feature version="9.3.14.v20161028">kat-jetty-http</feature>
-    <feature version="9.3.14.v20161028">kat-jetty-io</feature>
+    <feature version="[9.3.14.v20161028,9.3.14.v20161028]">kat-jetty-http</feature>
+    <feature version="[9.3.14.v20161028,9.3.14.v20161028]">kat-jetty-io</feature>
   </feature>
 
   <feature name="kat-jetty-client" version="9.3.14.v20161028">
@@ -72,8 +72,8 @@ limitations under the License.
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-client/9.3.14.v20161028</bundle>
 
-    <feature version="9.3.14.v20161028">kat-jetty-http</feature>
-    <feature version="9.3.14.v20161028">kat-jetty-io</feature>
+    <feature version="[9.3.14.v20161028,9.3.14.v20161028]">kat-jetty-http</feature>
+    <feature version="[9.3.14.v20161028,9.3.14.v20161028]">kat-jetty-io</feature>
   </feature>
 
   <feature name="kat-jetty-proxy" version="9.3.14.v20161028">
@@ -81,8 +81,8 @@ limitations under the License.
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-proxy/9.3.14.v20161028</bundle>
 
-    <feature version="9.3.14.v20161028">kat-jetty-client</feature>
-    <feature version="9.3.14.v20161028">kat-jetty-server</feature>
+    <feature version="[9.3.14.v20161028,9.3.14.v20161028]">kat-jetty-client</feature>
+    <feature version="[9.3.14.v20161028,9.3.14.v20161028]">kat-jetty-server</feature>
   </feature>
 
   <feature name="kat-jetty-meta" version="9.3.14.v20161028">
@@ -109,8 +109,8 @@ limitations under the License.
     <bundle start-level="30">mvn:org.eclipse.jetty.websocket/javax-websocket-client-impl/9.3.14.v20161028</bundle>
 
     <feature dependency="true">kat-jetty-dependencies</feature>
-    <feature version="9.3.14.v20161028">kat-jetty-client</feature>
-    <feature version="9.3.14.v20161028">kat-jetty-server</feature>
+    <feature version="[9.3.14.v20161028,9.3.14.v20161028]">kat-jetty-client</feature>
+    <feature version="[9.3.14.v20161028,9.3.14.v20161028]">kat-jetty-server</feature>
   </feature>
 
   <!-- ==================== -->
@@ -127,14 +127,14 @@ limitations under the License.
     <feature dependency="true">kat-jetty-dependencies</feature>
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-io/9.3.15.v20161220</bundle>
-    <feature version="9.3.15.v20161220">kat-jetty-util</feature>
+    <feature version="[9.3.15.v20161220,9.3.15.v20161220]">kat-jetty-util</feature>
   </feature>
 
   <feature name="kat-jetty-http" version="9.3.15.v20161220" hidden="true">
     <feature dependency="true">kat-jetty-dependencies</feature>
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-http/9.3.15.v20161220</bundle>
-    <feature version="9.3.15.v20161220">kat-jetty-util</feature>
+    <feature version="[9.3.15.v20161220,9.3.15.v20161220]">kat-jetty-util</feature>
   </feature>
 
   <feature name="kat-jetty-server" version="9.3.15.v20161220">
@@ -142,8 +142,8 @@ limitations under the License.
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-server/9.3.15.v20161220</bundle>
 
-    <feature version="9.3.15.v20161220">kat-jetty-http</feature>
-    <feature version="9.3.15.v20161220">kat-jetty-io</feature>
+    <feature version="[9.3.15.v20161220,9.3.15.v20161220]">kat-jetty-http</feature>
+    <feature version="[9.3.15.v20161220,9.3.15.v20161220]">kat-jetty-io</feature>
   </feature>
 
   <feature name="kat-jetty-client" version="9.3.15.v20161220">
@@ -151,8 +151,8 @@ limitations under the License.
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-client/9.3.15.v20161220</bundle>
 
-    <feature version="9.3.15.v20161220">kat-jetty-http</feature>
-    <feature version="9.3.15.v20161220">kat-jetty-io</feature>
+    <feature version="[9.3.15.v20161220,9.3.15.v20161220]">kat-jetty-http</feature>
+    <feature version="[9.3.15.v20161220,9.3.15.v20161220]">kat-jetty-io</feature>
   </feature>
 
   <feature name="kat-jetty-proxy" version="9.3.15.v20161220">
@@ -160,8 +160,8 @@ limitations under the License.
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-proxy/9.3.15.v20161220</bundle>
 
-    <feature version="9.3.15.v20161220">kat-jetty-client</feature>
-    <feature version="9.3.15.v20161220">kat-jetty-server</feature>
+    <feature version="[9.3.15.v20161220,9.3.15.v20161220]">kat-jetty-client</feature>
+    <feature version="[9.3.15.v20161220,9.3.15.v20161220]">kat-jetty-server</feature>
   </feature>
 
   <feature name="kat-jetty-meta" version="9.3.15.v20161220">
@@ -188,8 +188,8 @@ limitations under the License.
     <bundle start-level="30">mvn:org.eclipse.jetty.websocket/javax-websocket-client-impl/9.3.15.v20161220</bundle>
 
     <feature dependency="true">kat-jetty-dependencies</feature>
-    <feature version="9.3.15.v20161220">kat-jetty-client</feature>
-    <feature version="9.3.15.v20161220">kat-jetty-server</feature>
+    <feature version="[9.3.15.v20161220,9.3.15.v20161220]">kat-jetty-client</feature>
+    <feature version="[9.3.15.v20161220,9.3.15.v20161220]">kat-jetty-server</feature>
   </feature>
 
   <!-- ==================== -->
@@ -206,14 +206,14 @@ limitations under the License.
     <feature dependency="true">kat-jetty-dependencies</feature>
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-io/9.3.21.v20170918</bundle>
-    <feature version="9.3.21.v20170918">kat-jetty-util</feature>
+    <feature version="[9.3.21.v20170918,9.3.21.v20170918]">kat-jetty-util</feature>
   </feature>
 
   <feature name="kat-jetty-http" version="9.3.21.v20170918" hidden="true">
     <feature dependency="true">kat-jetty-dependencies</feature>
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-http/9.3.21.v20170918</bundle>
-    <feature version="9.3.21.v20170918">kat-jetty-util</feature>
+    <feature version="[9.3.21.v20170918,9.3.21.v20170918]">kat-jetty-util</feature>
   </feature>
 
   <feature name="kat-jetty-server" version="9.3.21.v20170918">
@@ -221,8 +221,8 @@ limitations under the License.
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-server/9.3.21.v20170918</bundle>
 
-    <feature version="9.3.21.v20170918">kat-jetty-http</feature>
-    <feature version="9.3.21.v20170918">kat-jetty-io</feature>
+    <feature version="[9.3.21.v20170918,9.3.21.v20170918]">kat-jetty-http</feature>
+    <feature version="[9.3.21.v20170918,9.3.21.v20170918]">kat-jetty-io</feature>
   </feature>
 
   <feature name="kat-jetty-client" version="9.3.21.v20170918">
@@ -230,8 +230,8 @@ limitations under the License.
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-client/9.3.21.v20170918</bundle>
 
-    <feature version="9.3.21.v20170918">kat-jetty-http</feature>
-    <feature version="9.3.21.v20170918">kat-jetty-io</feature>
+    <feature version="[9.3.21.v20170918,9.3.21.v20170918]">kat-jetty-http</feature>
+    <feature version="[9.3.21.v20170918,9.3.21.v20170918]">kat-jetty-io</feature>
   </feature>
 
   <feature name="kat-jetty-proxy" version="9.3.21.v20170918">
@@ -239,8 +239,8 @@ limitations under the License.
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-proxy/9.3.21.v20170918</bundle>
 
-    <feature version="9.3.21.v20170918">kat-jetty-client</feature>
-    <feature version="9.3.21.v20170918">kat-jetty-server</feature>
+    <feature version="[9.3.21.v20170918,9.3.21.v20170918]">kat-jetty-client</feature>
+    <feature version="[9.3.21.v20170918,9.3.21.v20170918]">kat-jetty-server</feature>
   </feature>
 
   <feature name="kat-jetty-meta" version="9.3.21.v20170918">
@@ -267,8 +267,8 @@ limitations under the License.
     <bundle start-level="30">mvn:org.eclipse.jetty.websocket/javax-websocket-client-impl/9.3.21.v20170918</bundle>
 
     <feature dependency="true">kat-jetty-dependencies</feature>
-    <feature version="9.3.21.v20170918">kat-jetty-client</feature>
-    <feature version="9.3.21.v20170918">kat-jetty-server</feature>
+    <feature version="[9.3.21.v20170918,9.3.21.v20170918]">kat-jetty-client</feature>
+    <feature version="[9.3.21.v20170918,9.3.21.v20170918]">kat-jetty-server</feature>
   </feature>
 
   <!-- ==================== -->
@@ -285,14 +285,14 @@ limitations under the License.
     <feature dependency="true">kat-jetty-dependencies</feature>
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-io/9.3.22.v20171030</bundle>
-    <feature version="9.3.22.v20171030">kat-jetty-util</feature>
+    <feature version="[9.3.22.v20171030,9.3.22.v20171030]">kat-jetty-util</feature>
   </feature>
 
   <feature name="kat-jetty-http" version="9.3.22.v20171030" hidden="true">
     <feature dependency="true">kat-jetty-dependencies</feature>
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-http/9.3.22.v20171030</bundle>
-    <feature version="9.3.22.v20171030">kat-jetty-util</feature>
+    <feature version="[9.3.22.v20171030,9.3.22.v20171030]">kat-jetty-util</feature>
   </feature>
 
   <feature name="kat-jetty-server" version="9.3.22.v20171030">
@@ -300,8 +300,8 @@ limitations under the License.
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-server/9.3.22.v20171030</bundle>
 
-    <feature version="9.3.22.v20171030">kat-jetty-http</feature>
-    <feature version="9.3.22.v20171030">kat-jetty-io</feature>
+    <feature version="[9.3.22.v20171030,9.3.22.v20171030]">kat-jetty-http</feature>
+    <feature version="[9.3.22.v20171030,9.3.22.v20171030]">kat-jetty-io</feature>
   </feature>
 
   <feature name="kat-jetty-client" version="9.3.22.v20171030">
@@ -309,8 +309,8 @@ limitations under the License.
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-client/9.3.22.v20171030</bundle>
 
-    <feature version="9.3.22.v20171030">kat-jetty-http</feature>
-    <feature version="9.3.22.v20171030">kat-jetty-io</feature>
+    <feature version="[9.3.22.v20171030,9.3.22.v20171030]">kat-jetty-http</feature>
+    <feature version="[9.3.22.v20171030,9.3.22.v20171030]">kat-jetty-io</feature>
   </feature>
 
   <feature name="kat-jetty-proxy" version="9.3.22.v20171030">
@@ -318,8 +318,8 @@ limitations under the License.
 
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-proxy/9.3.22.v20171030</bundle>
 
-    <feature version="9.3.22.v20171030">kat-jetty-client</feature>
-    <feature version="9.3.22.v20171030">kat-jetty-server</feature>
+    <feature version="[9.3.22.v20171030,9.3.22.v20171030]">kat-jetty-client</feature>
+    <feature version="[9.3.22.v20171030,9.3.22.v20171030]">kat-jetty-server</feature>
   </feature>
 
   <feature name="kat-jetty-meta" version="9.3.22.v20171030">
@@ -346,8 +346,8 @@ limitations under the License.
     <bundle start-level="30">mvn:org.eclipse.jetty.websocket/javax-websocket-client-impl/9.3.22.v20171030</bundle>
 
     <feature dependency="true">kat-jetty-dependencies</feature>
-    <feature version="9.3.22.v20171030">kat-jetty-client</feature>
-    <feature version="9.3.22.v20171030">kat-jetty-server</feature>
+    <feature version="[9.3.22.v20171030,9.3.22.v20171030]">kat-jetty-client</feature>
+    <feature version="[9.3.22.v20171030,9.3.22.v20171030]">kat-jetty-server</feature>
   </feature>
 
 </features>
