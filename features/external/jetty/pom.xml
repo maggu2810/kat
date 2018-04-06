@@ -8,14 +8,18 @@
     <version>1.9.5-SNAPSHOT</version>
   </parent>
 
-  <artifactId>jetty</artifactId>
-  <packaging>feature</packaging>
+  <groupId>de.maggu2810.kat.features.external.jetty</groupId>
+  <artifactId>pom</artifactId>
+  <packaging>pom</packaging>
 
   <name>KAT :: Feature :: External :: Jetty</name>
 
-  <dependencies>
-    <!-- Repositories -->
-    <!-- Direct bundle dependencies -->
-  </dependencies>
+  <modules>
+    <module>jetty-9.3.14.v20161028</module>
+    <module>jetty-9.3.15.v20161220</module>
+    <module>jetty-9.3.21.v20170918</module>
+    <module>jetty-9.3.22.v20171030</module>
+    <module>jetty-9.4.6.v20170531</module>
+  </modules>
 
 </project>
