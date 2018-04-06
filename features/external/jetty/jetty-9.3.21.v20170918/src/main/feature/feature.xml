@@ -34,10 +34,20 @@ limitations under the License.
     <bundle dependency="true" start-level="30">mvn:javax.websocket/javax.websocket-api/1.1</bundle>
   </feature>
 
-  <feature name="kat-jetty-util" version="${jetty.version}" hidden="true">
+  <feature name="kat-jetty-client" version="${jetty.version}">
     <feature dependency="true">kat-jetty-dependencies</feature>
 
-    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-util/${jetty.version}</bundle>
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-client/${jetty.version}</bundle>
+
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-http</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-io</feature>
+  </feature>
+
+  <feature name="kat-jetty-http" version="${jetty.version}" hidden="true">
+    <feature dependency="true">kat-jetty-dependencies</feature>
+
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-http/${jetty.version}</bundle>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-util</feature>
   </feature>
 
   <feature name="kat-jetty-io" version="${jetty.version}" hidden="true">
@@ -47,11 +57,21 @@ limitations under the License.
     <feature version="[${jetty.version},${jetty.version}]">kat-jetty-util</feature>
   </feature>
 
-  <feature name="kat-jetty-http" version="${jetty.version}" hidden="true">
+  <feature name="kat-jetty-proxy" version="${jetty.version}">
     <feature dependency="true">kat-jetty-dependencies</feature>
 
-    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-http/${jetty.version}</bundle>
-    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-util</feature>
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-proxy/${jetty.version}</bundle>
+
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-client</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-server</feature>
+  </feature>
+
+  <feature name="kat-jetty-security" version="${jetty.version}" hidden="true">
+    <feature dependency="true">kat-jetty-dependencies</feature>
+
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-security/${jetty.version}</bundle>
+
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-server</feature>
   </feature>
 
   <feature name="kat-jetty-server" version="${jetty.version}">
@@ -63,22 +83,18 @@ limitations under the License.
     <feature version="[${jetty.version},${jetty.version}]">kat-jetty-io</feature>
   </feature>
 
-  <feature name="kat-jetty-client" version="${jetty.version}">
+  <feature name="kat-jetty-servlet" version="${jetty.version}" hidden="true">
     <feature dependency="true">kat-jetty-dependencies</feature>
 
-    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-client/${jetty.version}</bundle>
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-servlet/${jetty.version}</bundle>
 
-    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-http</feature>
-    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-io</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-security</feature>
   </feature>
 
-  <feature name="kat-jetty-proxy" version="${jetty.version}">
+  <feature name="kat-jetty-util" version="${jetty.version}" hidden="true">
     <feature dependency="true">kat-jetty-dependencies</feature>
 
-    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-proxy/${jetty.version}</bundle>
-
-    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-client</feature>
-    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-server</feature>
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-util/${jetty.version}</bundle>
   </feature>
 
   <feature name="kat-jetty-websocket-api" version="${jetty.version}" hidden="true">
@@ -104,6 +120,16 @@ limitations under the License.
     <feature version="[${jetty.version},${jetty.version}]">kat-jetty-websocket-api</feature>
   </feature>
 
+  <feature name="kat-jetty-websocket-server" version="${jetty.version}">
+    <feature dependency="true">kat-jetty-dependencies</feature>
+
+    <bundle start-level="30">mvn:org.eclipse.jetty.websocket/websocket-server/${jetty.version}</bundle>
+
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-servlet</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-websocket-common</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-websocket-servlet</feature>
+  </feature>
+
   <feature name="kat-jetty-websocket-servlet" version="${jetty.version}" hidden="true">
     <feature dependency="true">kat-jetty-dependencies</feature>
 
@@ -118,8 +144,6 @@ limitations under the License.
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-plus/${jetty.version}</bundle>
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-jndi/${jetty.version}</bundle>
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-rewrite/${jetty.version}</bundle>
-    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-security/${jetty.version}</bundle>
-    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-servlet/${jetty.version}</bundle>
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-servlets/${jetty.version}</bundle>
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-util-ajax/${jetty.version}</bundle>
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-webapp/${jetty.version}</bundle>
@@ -127,7 +151,6 @@ limitations under the License.
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-xml/${jetty.version}</bundle>
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-deploy/${jetty.version}</bundle>
     <bundle start-level="30">mvn:org.eclipse.jetty/jetty-jmx/${jetty.version}</bundle>
-    <bundle start-level="30">mvn:org.eclipse.jetty.websocket/websocket-server/${jetty.version}</bundle>
     <bundle start-level="30">mvn:org.eclipse.jetty.websocket/javax-websocket-server-impl/${jetty.version}</bundle>
     <bundle start-level="30">mvn:org.eclipse.jetty.websocket/javax-websocket-client-impl/${jetty.version}</bundle>
 
@@ -136,6 +159,7 @@ limitations under the License.
     <feature version="[${jetty.version},${jetty.version}]">kat-jetty-server</feature>
     <feature version="[${jetty.version},${jetty.version}]">kat-jetty-websocket-client</feature>
     <feature version="[${jetty.version},${jetty.version}]">kat-jetty-websocket-servlet</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-websocket-server</feature>
   </feature>
 
 </features>
