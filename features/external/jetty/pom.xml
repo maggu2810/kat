@@ -20,6 +20,7 @@
     <module>jetty-9.3.21.v20170918</module>
     <module>jetty-9.3.22.v20171030</module>
     <module>jetty-9.4.6.v20170531</module>
+    <module>jetty-9.4.11.v20180605</module>
   </modules>
 
 </project>
