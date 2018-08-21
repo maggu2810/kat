@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
+
+  <feature name="kat-bouncycastle-prov" version="${bouncycastle.version}" hidden="true">
+    <details>Provider</details>
+    <bundle>mvn:org.bouncycastle/bcprov-jdk15on/${bouncycastle.version}</bundle>
+  </feature>
+
+  <feature name="kat-bouncycastle-pkix" version="${bouncycastle.version}" hidden="true">
+    <details>PKIX/CMS/EAC/PKCS OCSP/TSP/OPENSSL</details>
+    <bundle>mvn:org.bouncycastle/bcpkix-jdk15on/${bouncycastle.version}</bundle>
+
+    <feature version="[${bouncycastle.version},${bouncycastle.version}]">kat-bouncycastle-prov</feature>
+  </feature>
+
+  <feature name="kat-bouncycastle-mail" version="${bouncycastle.version}" hidden="true">
+    <details>SMIME</details>
+    <bundle>mvn:org.bouncycastle/bcmail-jdk15on/${bouncycastle.version}</bundle>
+
+    <feature version="[${bouncycastle.version},${bouncycastle.version}]">kat-bouncycastle-pkix</feature>
+  </feature>
+
+  <feature name="kat-bouncycastle-pg" version="${bouncycastle.version}">
+    <details>OpenPGP/BCPG</details>
+    <bundle>mvn:org.bouncycastle/bcpg-jdk15on/${bouncycastle.version}</bundle>
+
+    <feature version="[${bouncycastle.version},${bouncycastle.version}]">kat-bouncycastle-prov</feature>
+  </feature>
+
+  <feature name="kat-bouncycastle-tls" version="${bouncycastle.version}">
+    <details>DTLS/TLS API/JSSE Provider</details>
+    <bundle>mvn:org.bouncycastle/bctls-jdk15on/${bouncycastle.version}</bundle>
+
+    <feature version="[${bouncycastle.version},${bouncycastle.version}]">kat-bouncycastle-prov</feature>
+  </feature>
+
+</features>

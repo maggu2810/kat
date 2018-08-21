@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.maggu2810.kat.features.external</groupId>
+    <artifactId>pom</artifactId>
+    <version>1.9.9-SNAPSHOT</version>
+  </parent>
+
+  <groupId>de.maggu2810.kat.features.external.bouncycastle</groupId>
+  <artifactId>pom</artifactId>
+  <packaging>pom</packaging>
+
+  <name>KAT :: Feature :: External :: Bouncy Castle</name>
+
+  <modules>
+    <module>bouncycastle-1.57</module>
+    <module>bouncycastle-1.60</module>
+  </modules>
+
+</project>

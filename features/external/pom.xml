@@ -18,6 +18,7 @@
     <module>apache-commons</module>
     <module>apache-httpcomponents</module>
     <module>apache-mina</module>
+    <module>bouncycastle</module>
     <module>checkerframework</module>
     <module>equinox</module>
     <module>gson</module>
