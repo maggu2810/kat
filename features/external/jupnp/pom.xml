@@ -15,14 +15,14 @@
 
   <repositories>
     <repository>
-      <id>jCenter</id>
-      <url>https://jcenter.bintray.com/</url>
       <releases>
         <enabled>true</enabled>
       </releases>
       <snapshots>
         <enabled>false</enabled>
       </snapshots>
+      <id>jCenter</id>
+      <url>https://jcenter.bintray.com/</url>
     </repository>
   </repositories>
 

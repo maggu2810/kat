@@ -14,6 +14,12 @@
 
   <name>KAT :: Features</name>
 
+  <modules>
+    <module>external</module>
+    <module>kat-bpg</module>
+    <module>kat-kce</module>
+  </modules>
+
   <dependencies>
     <!-- Distribution -->
     <dependency>
@@ -48,17 +54,17 @@
           <executions>
             <execution>
               <id>compile</id>
-              <phase>generate-resources</phase>
               <goals>
                 <goal>features-generate-descriptor</goal>
               </goals>
+              <phase>generate-resources</phase>
             </execution>
             <execution>
               <id>verify</id>
-              <phase>process-resources</phase>
               <goals>
                 <goal>verify</goal>
               </goals>
+              <phase>process-resources</phase>
               <configuration>
                 <descriptors>
                   <!-- Apache Karaf -->
@@ -92,11 +98,5 @@
       </plugin>
     </plugins>
   </build>
-
-  <modules>
-    <module>external</module>
-    <module>kat-bpg</module>
-    <module>kat-kce</module>
-  </modules>
 
 </project>

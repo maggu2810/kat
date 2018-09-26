@@ -19,24 +19,24 @@
       <groupId>${project.groupId}</groupId>
       <artifactId>hk2</artifactId>
       <version>${project.version}</version>
-      <type>xml</type>
       <classifier>features</classifier>
+      <type>xml</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>jackson</artifactId>
       <version>${project.version}</version>
-      <type>xml</type>
       <classifier>features</classifier>
+      <type>xml</type>
       <scope>provided</scope>
     </dependency>
     <dependency>
       <groupId>${project.groupId}</groupId>
       <artifactId>utils</artifactId>
       <version>${project.version}</version>
-      <type>xml</type>
       <classifier>features</classifier>
+      <type>xml</type>
       <scope>provided</scope>
     </dependency>
 

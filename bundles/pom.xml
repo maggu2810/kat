@@ -14,6 +14,11 @@
 
   <name>KAT :: Bundles</name>
 
+  <modules>
+    <module>bundle-pom-generator</module>
+    <module>karaf-console-equinox</module>
+  </modules>
+
   <build>
     <plugins>
       <!-- Build a bundle -->
@@ -32,10 +37,5 @@
       </plugin>
     </plugins>
   </build>
-
-  <modules>
-    <module>bundle-pom-generator</module>
-    <module>karaf-console-equinox</module>
-  </modules>
 
 </project>

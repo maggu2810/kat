@@ -1,0 +1,48 @@
+<FindBugsFilter>
+  <Match>
+    <Class name="~.*\.*_" />
+  </Match>
+  <Match>
+    <Bug pattern="SLF4J_UNKNOWN_ARRAY" />
+  </Match>
+  <Match>
+    <Field type="org.slf4j.Logger" />
+    <Bug pattern="SE_BAD_FIELD" />
+  </Match>
+
+  <!-- Reduce false positives -->
+  <Match>
+    <Bug pattern="URF_UNREAD_PUBLIC_OR_PROTECTED_FIELD" />
+  </Match>
+  <Match>
+    <Bug pattern="UUF_UNUSED_PUBLIC_OR_PROTECTED_FIELD" />
+  </Match>
+
+  <!-- Let's use the Checker Framework for nullness checks. -->
+  <!-- It seems FindBugs get's in trouble if we use '@NonNullByDefault' annotation. -->
+  <Match>
+    <Bug pattern="RCN_REDUNDANT_NULLCHECK_OF_NONNULL_VALUE" />
+  </Match>
+  <Match>
+    <Bug pattern="RCN_REDUNDANT_NULLCHECK_OF_NULL_VALUE" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_STORE_INTO_NONNULL_FIELD" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_NONNULL_RETURN_VIOLATION" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_NONNULL_PARAM_VIOLATION" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_NULL_PARAM_DEREF" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_NONNULL_FIELD_NOT_INITIALIZED_IN_CONSTRUCTOR" />
+  </Match>
+  <Match>
+    <Bug pattern="NP_NULL_PARAM_DEREF_NONVIRTUAL" />
+  </Match>
+
+</FindBugsFilter>

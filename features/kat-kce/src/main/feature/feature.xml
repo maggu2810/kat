@@ -26,6 +26,7 @@ limitations under the License.
 
     <bundle>mvn:de.maggu2810.kat.bundles/karaf-console-equinox/${project.version}</bundle>
 
+    <feature>scr</feature>
     <feature>shell</feature>
 
     <bundle start="false" dependency="true" start-level="999">mvn:org.eclipse.birt.runtime/org.eclipse.osgi/3.10.2.v20150203-1939</bundle>
