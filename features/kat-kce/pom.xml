@@ -11,7 +11,7 @@
   <artifactId>kat-kce</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: Karaf Console Equinox</name>
+  <name>KAT - Feature - Karaf Console Equinox</name>
 
   <dependencies>
     <!-- Direct bundle dependencies -->

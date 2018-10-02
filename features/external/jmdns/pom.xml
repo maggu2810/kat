@@ -11,7 +11,7 @@
   <artifactId>jmdns</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: JmDNS</name>
+  <name>KAT - Feature - External - JmDNS</name>
 
 
 </project>

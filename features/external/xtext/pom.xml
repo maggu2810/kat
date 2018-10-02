@@ -11,6 +11,6 @@
   <artifactId>xtext</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: Xtext</name>
+  <name>KAT - Feature - External - Xtext</name>
 
 </project>

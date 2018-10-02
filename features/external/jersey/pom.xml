@@ -11,7 +11,7 @@
   <artifactId>jersey</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: Jersey</name>
+  <name>KAT - Feature - External - Jersey</name>
 
   <dependencies>
     <!-- Repositories -->

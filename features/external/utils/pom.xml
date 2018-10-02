@@ -11,6 +11,6 @@
   <artifactId>utils</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: Utils</name>
+  <name>KAT - Feature - External - Utils</name>
 
 </project>

@@ -11,7 +11,7 @@
   <artifactId>apache-mina</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: Apache MINA</name>
+  <name>KAT - Feature - External - Apache MINA</name>
 
   <dependencies>
     <!-- Repositories -->

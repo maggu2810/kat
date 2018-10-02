@@ -11,7 +11,7 @@
   <artifactId>swagger</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: Swagger</name>
+  <name>KAT - Feature - External - Swagger</name>
 
   <dependencies>
     <!-- Repositories -->

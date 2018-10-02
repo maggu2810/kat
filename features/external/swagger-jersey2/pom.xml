@@ -11,7 +11,7 @@
   <artifactId>swagger-jersey2</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: Swagger Jersey2</name>
+  <name>KAT - Feature - External - Swagger Jersey2</name>
 
   <dependencies>
     <!-- Repositories -->

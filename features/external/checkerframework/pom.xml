@@ -11,6 +11,6 @@
   <artifactId>checkerframework</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: Checker Framework</name>
+  <name>KAT - Feature - External - Checker Framework</name>
 
 </project>

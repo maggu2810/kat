@@ -12,7 +12,7 @@
   <artifactId>pom</artifactId>
   <packaging>pom</packaging>
 
-  <name>KAT :: Feature :: External :: Bouncy Castle</name>
+  <name>KAT - Feature - External - Bouncy Castle</name>
 
   <modules>
     <module>bouncycastle-1.57</module>

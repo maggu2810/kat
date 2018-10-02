@@ -11,7 +11,7 @@
   <artifactId>hk2</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: HK2</name>
+  <name>KAT - Feature - External - HK2</name>
 
   <dependencies>
     <!-- Repositories -->

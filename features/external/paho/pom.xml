@@ -11,6 +11,6 @@
   <artifactId>paho</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: Paho</name>
+  <name>KAT - Feature - External - Paho</name>
 
 </project>

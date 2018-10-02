@@ -11,7 +11,7 @@
   <artifactId>bouncycastle-1.57</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: Bouncy Castle :: 1.57</name>
+  <name>KAT - Feature - External - Bouncy Castle - 1.57</name>
 
   <properties>
     <bouncycastle.version>1.57</bouncycastle.version>

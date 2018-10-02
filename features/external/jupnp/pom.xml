@@ -11,7 +11,7 @@
   <artifactId>jupnp</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: jUPnP</name>
+  <name>KAT - Feature - External - jUPnP</name>
 
   <repositories>
     <repository>

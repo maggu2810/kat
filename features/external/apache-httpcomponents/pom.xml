@@ -11,6 +11,6 @@
   <artifactId>apache-httpcomponents</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: Apache HttpComponents</name>
+  <name>KAT - Feature - External - Apache HttpComponents</name>
 
 </project>

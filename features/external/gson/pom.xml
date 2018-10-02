@@ -11,6 +11,6 @@
   <artifactId>gson</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: Gson</name>
+  <name>KAT - Feature - External - Gson</name>
 
 </project>

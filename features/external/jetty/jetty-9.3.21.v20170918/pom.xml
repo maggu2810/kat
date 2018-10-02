@@ -11,7 +11,7 @@
   <artifactId>jetty-9.3.21.v20170918</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: Jetty :: 9.3.21.v20170918</name>
+  <name>KAT - Feature - External - Jetty - 9.3.21.v20170918</name>
 
   <properties>
     <jetty.version>9.3.21.v20170918</jetty.version>

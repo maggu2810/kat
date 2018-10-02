@@ -11,6 +11,6 @@
   <artifactId>apache-commons</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: Apache Commons</name>
+  <name>KAT - Feature - External - Apache Commons</name>
 
 </project>

@@ -10,7 +10,7 @@
 
   <artifactId>bundle-pom-generator</artifactId>
 
-  <name>KAT :: Bundle POM Generator</name>
+  <name>KAT - Bundles - Bundle POM Generator</name>
   <description>Provides the Karaf commands for the bundle pom generation</description>
 
   <dependencies>

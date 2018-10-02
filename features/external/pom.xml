@@ -12,7 +12,7 @@
   <artifactId>pom</artifactId>
   <packaging>pom</packaging>
 
-  <name>KAT :: Features :: External</name>
+  <name>KAT - Features - External</name>
 
   <modules>
     <module>apache-commons</module>

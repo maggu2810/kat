@@ -11,7 +11,7 @@
   <artifactId>jjwt</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT :: Feature :: External :: Java JWT</name>
+  <name>KAT - Feature - External - Java JWT</name>
 
   <dependencies>
     <!-- Repositories -->

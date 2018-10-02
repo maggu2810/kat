@@ -12,7 +12,7 @@
   <artifactId>pom</artifactId>
   <packaging>pom</packaging>
 
-  <name>KAT :: Bundles</name>
+  <name>KAT - Bundles</name>
 
   <modules>
     <module>bundle-pom-generator</module>

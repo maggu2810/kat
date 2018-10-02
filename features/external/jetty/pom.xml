@@ -12,7 +12,7 @@
   <artifactId>pom</artifactId>
   <packaging>pom</packaging>
 
-  <name>KAT :: Feature :: External :: Jetty</name>
+  <name>KAT - Feature - External - Jetty</name>
 
   <modules>
     <module>jetty-9.3.14.v20161028</module>
