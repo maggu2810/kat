@@ -28,6 +28,7 @@
     <module>jetty</module>
     <module>jjwt</module>
     <module>jmdns</module>
+    <module>jnr</module>
     <module>jupnp</module>
     <module>paho</module>
     <module>swagger</module>

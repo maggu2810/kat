@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
+
+  <feature name="kat-jnr-ffi" description="jnr-ffi" version="2.1.9">
+    <details>Java Abstracted Foreign Function Layer</details>
+    <bundle>mvn:com.github.jnr/jnr-ffi/2.1.9</bundle>
+    <feature dependency="true">kat-jnr-jffi</feature>
+    <feature dependency="true">kat-jnr-a64asm</feature>
+    <feature dependency="true">kat-jnr-x86asm</feature>
+    <bundle dependency="true" start-level="30">mvn:org.ow2.asm/asm/5.2</bundle>
+  </feature>
+
+  <feature name="kat-jnr-jffi" description="jffi" version="1.2.18">
+    <details>Java Foreign Function Interface</details>
+    <bundle>wrap:mvn:com.github.jnr/jffi/1.2.18$Bundle-SymbolicName=com.github.jnr.jffi&amp;Bundle-Version=1.2.18&amp;Import-Package=*
+    </bundle>
+    <feature prerequisite="true" dependency="false">wrap</feature>
+  </feature>
+
+  <feature name="kat-jnr-constants" description="jnr-constants" version="0.9.12">
+    <details>Java Native Runtime constants</details>
+    <bundle>wrap:mvn:com.github.jnr/jnr-constants/0.9.12$Bundle-SymbolicName=com.github.jnr.jnr-constants&amp;Bundle-Version=0.9.12&amp;Import-Package=*
+    </bundle>
+    <feature prerequisite="true" dependency="false">wrap</feature>
+  </feature>
+
+  <feature name="kat-jnr-a64asm" description="jnr-a64asm" version="1.0.0">
+    <details>AArch64 assembler for the Java Native Runtime</details>
+    <bundle>wrap:mvn:com.github.jnr/jnr-a64asm/1.0.0$Bundle-SymbolicName=com.github.jnr.jnr-a64asm&amp;Bundle-Version=1.0.0&amp;Import-Package=*
+    </bundle>
+    <feature prerequisite="true" dependency="false">wrap</feature>
+  </feature>
+
+  <feature name="kat-jnr-x86asm" description="jnr-x86asm" version="1.0.2">
+    <details>Pure java x86 and x86_64 assembler</details>
+    <bundle>wrap:mvn:com.github.jnr/jnr-x86asm/1.0.2$Bundle-SymbolicName=com.github.jnr.jnr-x86asm&amp;Bundle-Version=1.0.2&amp;Import-Package=*
+    </bundle>
+    <feature prerequisite="true" dependency="false">wrap</feature>
+  </feature>
+
+  <feature name="kat-jnr-posix" description="jnr-posix" version="3.0.47">
+    <details>Java Posix layer</details>
+    <bundle>mvn:com.github.jnr/jnr-posix/3.0.47</bundle>
+    <feature dependency="true">kat-jnr-constants</feature>
+    <feature dependency="true">kat-jnr-ffi</feature>
+  </feature>
+
+  <feature name="kat-jnr-unixsocket" description="jnr-unixsocket" version="0.21">
+    <details>UNIX domain sockets (AF_UNIX) for Java</details>
+    <bundle>mvn:com.github.jnr/jnr-unixsocket/0.21</bundle>
+    <feature dependency="true">kat-jnr-jffi</feature>
+    <feature dependency="true">kat-jnr-constants</feature>
+    <feature dependency="true">kat-jnr-ffi</feature>
+    <feature dependency="true">kat-jnr-posix</feature>
+  </feature>
+
+</features>
