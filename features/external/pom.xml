@@ -18,6 +18,7 @@
     <module>apache-commons</module>
     <module>apache-httpcomponents</module>
     <module>apache-mina</module>
+    <module>azure</module>
     <module>bouncycastle</module>
     <module>checkerframework</module>
     <module>equinox</module>
@@ -31,6 +32,7 @@
     <module>jnr</module>
     <module>jupnp</module>
     <module>paho</module>
+    <module>qpid-proton</module>
     <module>swagger</module>
     <module>swagger-jersey2</module>
     <module>utils</module>

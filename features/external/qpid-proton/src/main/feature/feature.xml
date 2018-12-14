@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
+
+  <feature name="kat-qpid-proton-j" description="org.apache.qpid/proton-j" version="0.31.0">
+    <bundle>mvn:org.apache.qpid/proton-j/0.31.0</bundle>
+  </feature>
+
+</features>

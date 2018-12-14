@@ -25,4 +25,8 @@
     <bundle>mvn:org.eclipse.paho/org.eclipse.paho.client.mqttv3/1.0.2</bundle>
   </feature>
 
+  <feature name="kat-paho-client-mqttv3" description="MQTT v3 Client" version="1.2.0">
+    <bundle>mvn:org.eclipse.paho/org.eclipse.paho.client.mqttv3/1.2.0</bundle>
+  </feature>
+
 </features>

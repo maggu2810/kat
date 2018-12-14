@@ -25,4 +25,8 @@
     <bundle>mvn:com.google.code.gson/gson/2.3.1</bundle>
   </feature>
 
+  <feature name="kat-gson" description="Conversion Java Objects into their JSON representation and reverse." version="2.8.5">
+    <bundle>mvn:com.google.code.gson/gson/2.8.5</bundle>
+  </feature>
+
 </features>
