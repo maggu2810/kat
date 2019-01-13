@@ -47,24 +47,18 @@
         <plugin>
           <groupId>org.apache.karaf.tooling</groupId>
           <artifactId>karaf-maven-plugin</artifactId>
+          <extensions>true</extensions>
           <configuration>
             <startLevel>80</startLevel>
             <aggregateFeatures>true</aggregateFeatures>
           </configuration>
           <executions>
             <execution>
-              <id>compile</id>
-              <goals>
-                <goal>features-generate-descriptor</goal>
-              </goals>
-              <phase>generate-resources</phase>
-            </execution>
-            <execution>
-              <id>verify</id>
+              <id>karaf-feature-verification</id>
               <goals>
                 <goal>verify</goal>
               </goals>
-              <phase>process-resources</phase>
+              <phase>package</phase>
               <configuration>
                 <descriptors>
                   <!-- Apache Karaf -->
@@ -91,12 +85,25 @@
         </plugin>
       </plugins>
     </pluginManagement>
-    <plugins>
-      <plugin>
-        <groupId>org.apache.karaf.tooling</groupId>
-        <artifactId>karaf-maven-plugin</artifactId>
-      </plugin>
-    </plugins>
   </build>
+
+  <profiles>
+    <profile>
+      <id>activate-karaf-feature-verification</id>
+      <activation>
+        <file>
+          <exists>src/main/feature/feature.xml</exists>
+        </file>
+      </activation>
+      <build>
+        <plugins>
+          <plugin>
+            <groupId>org.apache.karaf.tooling</groupId>
+            <artifactId>karaf-maven-plugin</artifactId>
+          </plugin>
+        </plugins>
+      </build>
+    </profile>
+  </profiles>
 
 </project>
