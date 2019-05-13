@@ -25,6 +25,7 @@
     <module>gson</module>
     <module>hk2</module>
     <module>jackson</module>
+    <module>jcache</module>
     <module>jersey</module>
     <module>jetty</module>
     <module>jjwt</module>
