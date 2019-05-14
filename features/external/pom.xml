@@ -21,11 +21,11 @@
     <module>azure</module>
     <module>bouncycastle</module>
     <module>checkerframework</module>
+    <module>ehcache</module>
     <module>equinox</module>
     <module>gson</module>
     <module>hk2</module>
     <module>jackson</module>
-    <module>jcache</module>
     <module>jersey</module>
     <module>jetty</module>
     <module>jjwt</module>

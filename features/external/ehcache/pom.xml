@@ -8,9 +8,9 @@
     <version>1.9.14-SNAPSHOT</version>
   </parent>
 
-  <artifactId>jcache</artifactId>
+  <artifactId>ehcache</artifactId>
   <packaging>feature</packaging>
 
-  <name>KAT - Feature - External - JCache</name>
+  <name>KAT - Feature - External - Ehcache</name>
 
 </project>
