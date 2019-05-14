@@ -22,8 +22,9 @@
 <features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.3.0">
 
   <feature name="kat-ehcache" description="Ehcache" version="3.0.7">
-    <bundle dependency="true">mvn:javax.cache/cache-api/1.1.1</bundle>
     <bundle>mvn:org.ehcache/ehcache/3.7.0</bundle>
+    <capability>osgi.service;objectClass:List&lt;String&gt;="javax.cache.spi.CachingProvider"</capability>
+    <bundle dependency="true">mvn:javax.cache/cache-api/1.1.1</bundle>
   </feature>
 
 </features>
