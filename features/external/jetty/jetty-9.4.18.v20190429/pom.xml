@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <parent>
+    <groupId>de.maggu2810.kat.features.external.jetty</groupId>
+    <artifactId>pom</artifactId>
+    <version>1.9.16-SNAPSHOT</version>
+  </parent>
+
+  <artifactId>jetty-9.4.18.v20190429</artifactId>
+  <packaging>feature</packaging>
+
+  <name>KAT - Feature - External - Jetty - 9.4.18.v20190429</name>
+
+  <properties>
+    <jetty.version>9.4.18.v20190429</jetty.version>
+  </properties>
+
+</project>
