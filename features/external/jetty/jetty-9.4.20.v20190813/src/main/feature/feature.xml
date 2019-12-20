@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<features name="${project.artifactId}-${project.version}" xmlns="http://karaf.apache.org/xmlns/features/v1.4.0">
+
+  <feature name="kat-jetty-dependencies" description="Jetty Dependencies" version="9.4" hidden="true">
+    <bundle dependency="true" start-level="30">mvn:org.ow2.asm/asm/6.0</bundle>
+    <bundle dependency="true" start-level="30">mvn:org.ow2.asm/asm-util/6.0</bundle>
+    <bundle dependency="true" start-level="30">mvn:org.ow2.asm/asm-tree/6.0</bundle>
+    <bundle dependency="true" start-level="30">mvn:org.ow2.asm/asm-analysis/6.0</bundle>
+    <bundle dependency="true" start-level="30">mvn:org.ow2.asm/asm-commons/6.0</bundle>
+    <bundle dependency="true" start-level="30">mvn:org.apache.xbean/xbean-bundleutils/4.6</bundle>
+    <bundle dependency="true" start-level="30">mvn:org.apache.xbean/xbean-reflect/4.6</bundle>
+    <bundle dependency="true" start-level="30">mvn:org.apache.xbean/xbean-finder/4.6</bundle>
+    <bundle dependency="true" start-level="30">mvn:org.apache.servicemix.specs/org.apache.servicemix.specs.activation-api-1.1/2.5.0</bundle>
+    <bundle dependency="true" start-level="30">mvn:javax.servlet/javax.servlet-api/3.1.0</bundle>
+    <bundle dependency="true" start-level="30">mvn:javax.mail/mail/1.4.4</bundle>
+    <bundle dependency="true" start-level="30">mvn:org.apache.geronimo.specs/geronimo-jta_1.1_spec/1.1.1</bundle>
+    <bundle dependency="true" start-level="30">mvn:javax.annotation/javax.annotation-api/1.2</bundle>
+    <bundle dependency="true" start-level="30">mvn:org.apache.geronimo.specs/geronimo-jaspic_1.0_spec/1.1</bundle>
+    <bundle dependency="true" start-level="30">mvn:org.apache.aries.spifly/org.apache.aries.spifly.dynamic.bundle/1.0.10</bundle>
+    <bundle dependency="true" start-level="30">mvn:org.apache.aries/org.apache.aries.util/1.1.0</bundle>
+    <bundle dependency="true" start-level="30">mvn:javax.websocket/javax.websocket-api/1.1</bundle>
+  </feature>
+
+  <feature name="kat-jetty-client" version="${jetty.version}">
+    <feature dependency="true">kat-jetty-dependencies</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-http</feature>
+
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-client/${jetty.version}</bundle>
+  </feature>
+
+  <feature name="kat-jetty-http" version="${jetty.version}" hidden="true">
+    <feature dependency="true">kat-jetty-dependencies</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-io</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-util</feature>
+
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-http/${jetty.version}</bundle>
+  </feature>
+
+  <feature name="kat-jetty-io" version="${jetty.version}" hidden="true">
+    <feature dependency="true">kat-jetty-dependencies</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-util</feature>
+
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-io/${jetty.version}</bundle>
+  </feature>
+
+  <feature name="kat-jetty-proxy" version="${jetty.version}">
+    <feature dependency="true">kat-jetty-dependencies</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-client</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-server</feature>
+
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-proxy/${jetty.version}</bundle>
+  </feature>
+
+  <feature name="kat-jetty-security" version="${jetty.version}" hidden="true">
+    <feature dependency="true">kat-jetty-dependencies</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-server</feature>
+
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-security/${jetty.version}</bundle>
+  </feature>
+
+  <feature name="kat-jetty-server" version="${jetty.version}">
+    <feature dependency="true">kat-jetty-dependencies</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-http</feature>
+
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-server/${jetty.version}</bundle>
+  </feature>
+
+  <feature name="kat-jetty-servlet" version="${jetty.version}" hidden="true">
+    <feature dependency="true">kat-jetty-dependencies</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-security</feature>
+
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-servlet/${jetty.version}</bundle>
+  </feature>
+
+  <feature name="kat-jetty-util" version="${jetty.version}" hidden="true">
+    <feature dependency="true">kat-jetty-dependencies</feature>
+
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-util/${jetty.version}</bundle>
+  </feature>
+
+  <feature name="kat-jetty-websocket-api" version="${jetty.version}" hidden="true">
+    <feature dependency="true">kat-jetty-dependencies</feature>
+
+    <bundle start-level="30">mvn:org.eclipse.jetty.websocket/websocket-api/${jetty.version}</bundle>
+  </feature>
+
+  <feature name="kat-jetty-websocket-client" version="${jetty.version}">
+    <feature dependency="true">kat-jetty-dependencies</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-client</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-websocket-common</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-xml</feature>
+
+    <bundle start-level="30">mvn:org.eclipse.jetty.websocket/websocket-client/${jetty.version}</bundle>
+  </feature>
+
+  <feature name="kat-jetty-websocket-common" version="${jetty.version}" hidden="true">
+    <feature dependency="true">kat-jetty-dependencies</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-io</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-websocket-api</feature>
+
+    <bundle start-level="30">mvn:org.eclipse.jetty.websocket/websocket-common/${jetty.version}</bundle>
+  </feature>
+
+  <feature name="kat-jetty-websocket-server" version="${jetty.version}">
+    <feature dependency="true">kat-jetty-dependencies</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-servlet</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-websocket-common</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-websocket-servlet</feature>
+
+    <bundle start-level="30">mvn:org.eclipse.jetty.websocket/websocket-server/${jetty.version}</bundle>
+  </feature>
+
+  <feature name="kat-jetty-websocket-servlet" version="${jetty.version}" hidden="true">
+    <feature dependency="true">kat-jetty-dependencies</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-websocket-api</feature>
+
+    <bundle start-level="30">mvn:org.eclipse.jetty.websocket/websocket-servlet/${jetty.version}</bundle>
+  </feature>
+
+  <feature name="kat-jetty-xml" version="${jetty.version}" hidden="true">
+    <feature dependency="true">kat-jetty-dependencies</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-util</feature>
+
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-xml/${jetty.version}</bundle>
+  </feature>
+
+  <feature name="kat-jetty-meta" version="${jetty.version}">
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-continuation/${jetty.version}</bundle>
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-jaspi/${jetty.version}</bundle>
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-plus/${jetty.version}</bundle>
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-jndi/${jetty.version}</bundle>
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-rewrite/${jetty.version}</bundle>
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-servlets/${jetty.version}</bundle>
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-util-ajax/${jetty.version}</bundle>
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-webapp/${jetty.version}</bundle>
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-jaas/${jetty.version}</bundle>
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-deploy/${jetty.version}</bundle>
+    <bundle start-level="30">mvn:org.eclipse.jetty/jetty-jmx/${jetty.version}</bundle>
+    <bundle start-level="30">mvn:org.eclipse.jetty.websocket/javax-websocket-server-impl/${jetty.version}</bundle>
+    <bundle start-level="30">mvn:org.eclipse.jetty.websocket/javax-websocket-client-impl/${jetty.version}</bundle>
+
+    <feature dependency="true">kat-jetty-dependencies</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-client</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-server</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-websocket-client</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-websocket-servlet</feature>
+    <feature version="[${jetty.version},${jetty.version}]">kat-jetty-websocket-server</feature>
+  </feature>
+
+</features>
